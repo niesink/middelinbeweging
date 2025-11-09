@@ -3,7 +3,43 @@ layout: default
 ---
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
+<div class="page__hero--overlay"
+  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if page.header.overlay_image %}background-image: {% if page.header.overlay_filter %}{{ page.header.overlay_filter }}, {% endif %}url('{{ page.header.overlay_image | relative_url }}');{% endif %}"
+>
+  {% if page.header.overlay_filter %}
+    <div class="wrapper">
+      <div class="page__hero-caption">
+        <!-- Logo in plaats van titel -->
+        <div class="hero-logo-in-header">
+          <img src="{{ '/assets/images/no_bg.png' | relative_url }}" alt="Middel in Beweging" class="hero-logo-image">
+        </div>
+        
+        {% if page.excerpt %}
+          <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% endif %}
+        
+        {% if page.header.actions %}
+          <p>
+          {% for action in page.header.actions %}
+            <a href="{{ action.url }}" class="btn btn--light-outline btn--large {{ action.class }}">{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a>
+          {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% else %}
+    <div class="wrapper">
+      <div class="page__hero-caption">
+        <div class="hero-logo-in-header">
+          <img src="{{ '/assets/images/no_bg.png' | relative_url }}" alt="Middel in Beweging" class="hero-logo-image">
+        </div>
+        {% if page.excerpt %}
+          <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
 {% elsif page.header.video.id and page.header.video.provider %}
   {% include page__hero_video.html %}
 {% endif %}
@@ -16,17 +52,11 @@ layout: default
 
 <div id="main" role="main">
   <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <section class="page__content" itemprop="text">
-      <!-- Logo in plaats van titel -->
-      <div class="hero-logo-container">
-        <img src="{{ '/assets/images/no_bg.png' | relative_url }}" alt="Middel in Beweging" class="hero-logo-image">
-      </div>
-      
       {{ content }}
     </section>
   </article>
