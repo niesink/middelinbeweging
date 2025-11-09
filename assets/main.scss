@@ -456,9 +456,25 @@ html {
 }
 
 /* Hero Logo - in header overlay */
+.page__hero--overlay .wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.page__hero--overlay .page__hero-caption {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
 .hero-logo-in-header {
   text-align: center;
   margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .hero-logo-in-header .hero-logo-image {
@@ -466,7 +482,7 @@ html {
   width: 250px;
   max-width: 400px;
   height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
   animation: float 3s ease-in-out infinite;
 }
 
@@ -482,6 +498,10 @@ html {
 @media (max-width: 768px) {
   .hero-logo-in-header .hero-logo-image {
     width: 180px;
+  }
+  
+  .page__hero--overlay .wrapper {
+    padding: 2rem 1rem;
   }
 }
 
