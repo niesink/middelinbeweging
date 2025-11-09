@@ -41,7 +41,7 @@ header.site-header p { color: #fff; opacity: 0.9; }
 .whatsapp-btn:hover { background: var(--brand-light); transform: translateY(-2px); }
 
 blockquote { background:#f9f9f9; border-left:4px solid var(--brand); margin:1rem 0; padding:.75rem 1rem; }
-blockquote footer { font-size:.85rem; color:darken($secondary, 20%); }
+blockquote footer { font-size:.85rem; color: rgba(0,0,0,0.55); }
 
 table.prices { width:100%; border-collapse: collapse; }
 table.prices th, table.prices td { border:1px solid #ddd; padding:.5rem .75rem; }
