@@ -411,6 +411,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ========================================
+   🎨 LOGO IN HEADER
+   ======================================== */
+.page__hero--overlay::before {
+  content: "";
+  display: block;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 2rem;
+  background-image: url('/middelinbeweging/assets/images/no_bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 /* Page hero overlay text */
 .page__hero--overlay {
   color: white;
@@ -420,6 +442,14 @@ html {
 .page__lead {
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .page__hero--overlay::before {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Text center utility */
