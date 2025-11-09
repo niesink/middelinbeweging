@@ -16,7 +16,7 @@ Deze repository bevat de broncode voor de GitHub Pages site van de aerobicslesse
 | Uitleg pagina | `uitleg/index.md` | Uitgebreidere omschrijving. |
 | Korte uitleg blok | `_includes/explanation.html` of tekst op homepage | Voor snelle introductie. |
 | Google Calendar embed | `_config.yml` (`calendar_embed_url`) | Laat leeg om te verbergen. |
-| Kleuren | `_config.yml` (`brand_color`, `secondary_color`) + `assets/css/style.scss` | Huisstijl aanpassen. |
+| Kleuren | `_config.yml` (`brand_color`, `secondary_color`) + `assets/main.scss` | Huisstijl aanpassen. |
 
 ## Homepage opbouw
 In `index.html` (met front matter) worden componenten samengevoegd via `{% include ... %}`. Aanpassen van content doe je dus meestal in `_data/*.yml` of de markdown pagina's.
@@ -46,7 +46,7 @@ weeks:
 ```
 
 ## Styling
-Custom SCSS in `assets/css/style.scss`. Jekyll (GitHub Pages) compileert dit naar `/assets/css/style.css` zolang er front matter bovenaan staat.
+Custom SCSS staat nu in `assets/main.scss`. Omdat de theme `minima` gebruikt wordt en dit bestand exact zo heet, wordt het automatisch verwerkt en override je de standaard styling. Zorg dat de front matter (`---`) bovenaan blijft staan.
 
 ## Veelvoorkomende Wijzigingen
 - Nieuw liedje? Voeg item toe aan `songs.yml`.
