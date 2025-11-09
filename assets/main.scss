@@ -414,23 +414,32 @@ html {
 /* ========================================
    🎨 LOGO IN HEADER TITLE
    ======================================== */
+.page__hero .page__title {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 .page__hero .page__title .header-logo-img {
   display: block;
-  width: 300px;
-  max-width: 90%;
+  width: 250px;
+  max-width: 400px;
   height: auto;
   margin: 0 auto;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.5));
   animation: float 3s ease-in-out infinite;
 }
 
-.page__hero .page__title {
-  text-align: center;
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .page__hero .page__title .header-logo-img {
+    width: 180px;
+  }
 }
 
 /* Page hero overlay text */
