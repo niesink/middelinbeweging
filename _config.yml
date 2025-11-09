@@ -1,28 +1,50 @@
 title: Middel in Beweging Aerobics
 description: Groepslessen aerobics met energie, muziek en plezier.
 lang: nl-NL
-theme: minima
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "default"
+
+# Site Author
+author:
+  name: "Middel in Beweging"
+  bio: "Aerobics instructeur met passie voor beweging en muziek"
+
 # Zet hier je (internationale) nummer zonder plus, voor WhatsApp link
 whatsapp_number: 31612345678
-# Optionele sociale media gebruikersnamen / urls in _data/social.yml
 # Google Calendar embed URL (optioneel)
 calendar_embed_url: "https://calendar.google.com/calendar/embed?src=eh04k1h521g60t949ri8a7nblc%40group.calendar.google.com&ctz=Europe%2FRome"
+
+# Site Settings
+url: "https://niesink.github.io"
+baseurl: "/middelinbeweging"
+repository: "niesink/middelinbeweging"
 
 # Permalinks & markdown
 markdown: kramdown
 kramdown:
   input: GFM
 
+# Collections
 collections:
   pages:
     output: true
 
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+
 # Exclude build artefacts
 exclude:
   - README.md
+  - Gemfile
+  - Gemfile.lock
 
-# Custom variables (voor theme / styling)
-brand_color: "#ff3d6a"
-secondary_color: "#222"
-url: "https://niesink.github.io"
-baseurl: "/middelinbeweging"
+# Plugins
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache

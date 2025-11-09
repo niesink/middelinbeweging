@@ -1,7 +1,8 @@
 ---
-# This file overrides Minima's default stylesheet when present.
+# This file overrides Minimal Mistakes default stylesheet.
 ---
-@import "minima";
+@import "minimal-mistakes/skins/default"; 
+@import "minimal-mistakes";
 
 /* Retro + modern palette (70s vibes) */
 :root {
