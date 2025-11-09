@@ -6,8 +6,6 @@ permalink: /voorwaarden/
 
 ## Algemene Voorwaarden (Concept)
 
-Deze tekst is een placeholder. Pas dit aan via GitHub door het bestand `terms/index.md` te bewerken.
-
 1. Deelname is op eigen risico.
 2. Medische klachten? Meld het vóór aanvang van de les.
 3. Abonnementen zijn persoonlijk en niet overdraagbaar.
