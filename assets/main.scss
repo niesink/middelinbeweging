@@ -414,17 +414,12 @@ html {
 /* ========================================
    🎨 LOGO IN HEADER
    ======================================== */
-.page__hero--overlay::before {
-  content: "";
+.hero-logo {
   display: block;
   width: 280px;
-  height: 280px;
-  margin: 0 auto 2rem;
-  background-image: url('/middelinbeweging/assets/images/no_bg.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,.3));
+  height: auto;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.4));
   animation: float 3s ease-in-out infinite;
 }
 
@@ -445,10 +440,8 @@ html {
 }
 
 @media (max-width: 768px) {
-  .page__hero--overlay::before {
+  .hero-logo {
     width: 180px;
-    height: 180px;
-    margin-bottom: 1.5rem;
   }
 }
 
