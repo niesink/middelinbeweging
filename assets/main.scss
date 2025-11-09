@@ -478,8 +478,9 @@ html {
 }
 
 .hero-logo-in-header .hero-logo-image {
-  display: inline-block;
-  width: 250px;
+  display: block;
+  margin: auto;
+  width: 400px;
   max-width: 400px;
   height: auto;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
