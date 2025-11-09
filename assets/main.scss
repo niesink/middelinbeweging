@@ -412,23 +412,20 @@ html {
 }
 
 /* ========================================
-   🎨 LOGO IN HEADER
+   🎨 LOGO IN HEADER TITLE
    ======================================== */
-.hero-logo-container {
-  text-align: center;
-  padding: 3rem 1rem 1rem;
-  margin-top: -5rem;
-  position: relative;
-  z-index: 10;
-}
-
-.hero-logo {
-  display: inline-block;
-  width: 280px;
+.page__hero .page__title .header-logo-img {
+  display: block;
+  width: 300px;
   max-width: 90%;
   height: auto;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,.4));
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5));
   animation: float 3s ease-in-out infinite;
+}
+
+.page__hero .page__title {
+  text-align: center;
 }
 
 @keyframes float {
