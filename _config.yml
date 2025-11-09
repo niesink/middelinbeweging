@@ -24,3 +24,5 @@ exclude:
 # Custom variables (voor theme / styling)
 brand_color: "#ff3d6a"
 secondary_color: "#222"
+url: "https://niesink.github.io"
+baseurl: "/middelinbeweging"
