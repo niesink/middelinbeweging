@@ -1,0 +1,17 @@
+weeks:
+  - week: 45
+    sessions:
+      - day: "Maandag"
+        time: "19:00 - 20:00"
+        location: "Sporthal Noord"
+      - day: "Woensdag"
+        time: "19:30 - 20:30"
+        location: "Gymzaal Centrum"
+  - week: 46
+    sessions:
+      - day: "Maandag"
+        time: "19:00 - 20:00"
+        location: "Sporthal Noord"
+      - day: "Donderdag"
+        time: "20:00 - 21:00"
+        location: "Gymzaal Zuid"

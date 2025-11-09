@@ -1,0 +1,8 @@
+<section id="contact" class="component">
+  <h2>Contact & WhatsApp</h2>
+  {% if site.whatsapp_number %}
+    <p>Stuur me direct een bericht via <a class="whatsapp-btn" href="https://wa.me/{{ site.whatsapp_number }}" target="_blank" rel="noopener">WhatsApp</a>.</p>
+  {% else %}
+    <p>WhatsApp nummer nog niet ingesteld. Voeg <code>whatsapp_number</code> toe in <code>_config.yml</code>.</p>
+  {% endif %}
+</section>

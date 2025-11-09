@@ -1,0 +1,12 @@
+<section id="social" class="component">
+  <h2>Volg ons</h2>
+  {% if site.data.social and site.data.social.social %}
+    <ul class="social-links">
+      {% for s in site.data.social.social %}
+        <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.platform }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nog geen social links toegevoegd. Bewerk <code>_data/social.yml</code>.</p>
+  {% endif %}
+</section>

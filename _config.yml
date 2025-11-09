@@ -1,0 +1,26 @@
+title: Middel in Beweging Aerobics
+description: Groepslessen aerobics met energie, muziek en plezier.
+lang: nl-NL
+theme: minima
+# Zet hier je (internationale) nummer zonder plus, voor WhatsApp link
+whatsapp_number: 31612345678
+# Optionele sociale media gebruikersnamen / urls in _data/social.yml
+# Google Calendar embed URL (optioneel)
+calendar_embed_url: "https://calendar.google.com/calendar/embed?src=eh04k1h521g60t949ri8a7nblc%40group.calendar.google.com&ctz=Europe%2FRome"
+
+# Permalinks & markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  pages:
+    output: true
+
+# Exclude build artefacts
+exclude:
+  - README.md
+
+# Custom variables (voor theme / styling)
+brand_color: "#ff3d6a"
+secondary_color: "#222"

@@ -1,56 +1,43 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Aerobics Les</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-        header, section { margin-bottom: 30px; }
-        ul { list-style-type: disc; margin-left: 20px; }
-        .social-links a { margin-right: 10px; text-decoration: none; }
-        .calendar-container { max-width: 800px; margin: auto; }
-    </style>
-</head>
-<body>
+---
+layout: default
+title: Home
+---
+<header class="site-header">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+</header>
 
-    <header>
-        <h1>Welkom bij onze Aerobics Les!</h1>
-    </header>
+<main class="content">
+    {% include whatsapp.html %}
 
-    <section id="info">
-        <h2>Over de lessen</h2>
-        <p>
-            Hier komt al je informatie te staan over de lessen. 
-            Wat doen we, voor wie is het, wat kost het, en waar is het?
-        </p>
+    <section id="uitleg" class="component">
+        <h2>Uitleg</h2>
+        <p>Wat doen we? Energieke aerobics lessen met progressieve opbouw, veel muziek en plezier. Bekijk ook de uitgebreide <a href="/uitleg/">uitleg pagina</a>.</p>
     </section>
 
-    <section id="agenda">
-        <h2>Lesrooster</h2>
-        <p>Hieronder zie je wanneer de volgende lessen zijn. Dit wordt automatisch bijgewerkt!</p>
-        
+    {% include schedule.html %}
+
+    {% if site.calendar_embed_url %}
+    <section id="agenda-embed" class="component">
+        <h2>Agenda (Google Calendar)</h2>
         <div class="calendar-container">
-            <iframe src="https://calendar.google.com/calendar/embed?src=eh04k1h521g60t949ri8a7nblc%40group.calendar.google.com&ctz=Europe%2FRome" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            <iframe src="{{ site.calendar_embed_url }}" style="border:0" width="800" height="600" frameborder="0" scrolling="no" loading="lazy" title="Lesrooster"></iframe>
         </div>
-        
     </section>
+    {% endif %}
 
-    <section id="playlist">
-        <h2>Onze Playlist</h2>
-        <p>Een paar nummers waar we graag op dansen:</p>
-        <ul>
-            <li>Liedje 1 - Artiest</li>
-            <li>Liedje 2 - Artiest</li>
-            <li>Liedje 3 - Artiest</li>
-        </ul>
+    {% include songs.html %}
+    {% include testimonials.html %}
+    {% include prices.html %}
+    {% include social.html %}
+
+    <section id="voorwaarden" class="component">
+        <h2>Algemene Voorwaarden</h2>
+        <p>Lees onze <a href="/voorwaarden/">algemene voorwaarden</a> voor deelname.</p>
     </section>
+</main>
 
-    <footer class="social-links">
-        <h2>Volg ons!</h2>
-        <a href="https://instagram.com/jouwprofiel" target="_blank">Instagram</a>
-        <a href="https://facebook.com/jouwprofiel" target="_blank">Facebook</a>
-        </footer>
-
-</body>
-</html>
+<footer class="site-footer">
+    <p>&copy; {{ site.time | date: '%Y' }} Middel in Beweging Aerobics.</p>
+    <p><a href="/voorwaarden/">Voorwaarden</a> · <a href="/uitleg/">Uitleg</a></p>
+</footer>

@@ -1,0 +1,15 @@
+<section id="reacties" class="component">
+  <h2>Quotes van leden</h2>
+  {% if site.data.testimonials and site.data.testimonials.testimonials %}
+    <div class="testimonials">
+      {% for t in site.data.testimonials.testimonials %}
+        <blockquote>
+          <p>“{{ t.quote }}”</p>
+          <footer>— {{ t.name }}</footer>
+        </blockquote>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Nog geen reacties toegevoegd. Bewerk <code>_data/testimonials.yml</code>.</p>
+  {% endif %}
+</section>

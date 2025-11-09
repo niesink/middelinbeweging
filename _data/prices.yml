@@ -1,0 +1,10 @@
+prices:
+  - name: "Losse les"
+    amount: 8.50
+    unit: "per les"
+  - name: "Maandabonnement"
+    amount: 29.00
+    unit: "per maand (4-5 lessen)"
+  - name: "Strippenkaart 10x"
+    amount: 75.00
+    unit: "10 lessen, 3 maanden geldig"

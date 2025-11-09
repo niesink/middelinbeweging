@@ -1,0 +1,19 @@
+<section id="prijzen" class="component">
+  <h2>Prijzen</h2>
+  {% if site.data.prices and site.data.prices.prices %}
+    <table class="prices">
+      <thead><tr><th>Product</th><th>Prijs (€)</th><th>Info</th></tr></thead>
+      <tbody>
+        {% for p in site.data.prices.prices %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.amount | sprintf: '%.2f' }}</td>
+            <td>{{ p.unit }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Nog geen prijzen toegevoegd. Bewerk <code>_data/prices.yml</code>.</p>
+  {% endif %}
+</section>
