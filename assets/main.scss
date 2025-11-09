@@ -4,86 +4,445 @@
 @import "minimal-mistakes/skins/default"; 
 @import "minimal-mistakes";
 
-/* Retro + modern palette (70s vibes) */
+/* Import 70s inspired fonts */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@400;600;700&family=Fredoka:wght@400;600&display=swap');
+
+/* ========================================
+   🌈 JAREN 70 RETRO KLEURENPALET
+   ======================================== */
 :root {
-  --brand: {{ site.brand_color | default: '#ff6f61' }};
-  --brand-light: #ff9d8f;
-  --secondary: {{ site.secondary_color | default: '#1a1a1a' }};
-  --bg: #fff8e7;
-  --bg-alt: #fff3d1;
-  --retro-gold: #ffd23f;
-  --retro-teal: #1b9aaa;
-  --retro-mint: #06d6a0;
-  --retro-magenta: #ef476f;
-  --retro-purple: #8338ec;
-  --accent-gradient: linear-gradient(135deg, var(--brand) 0%, var(--retro-gold) 45%, var(--retro-purple) 100%);
+  /* Hoofdkleuren - warm en uitnodigend */
+  --retro-orange: #ff6f61;      /* Burnt sienna */
+  --retro-gold: #ffd23f;         /* Zonnig geel */
+  --retro-brown: #8b5a3c;        /* Warme chocolade bruin */
+  --retro-mustard: #e8b730;      /* Mosterd geel */
+  --retro-teal: #1b9aaa;         /* Retro turquoise */
+  --retro-purple: #8338ec;       /* Disco paars */
+  --retro-magenta: #ef476f;      /* Roze-rood */
+  --retro-mint: #06d6a0;         /* Fris mint groen */
+  --retro-cream: #fff8e7;        /* Warme achtergrond */
+  --retro-beige: #f5e6d3;        /* Zachte beige */
+  
+  /* Gradients voor drama */
+  --retro-gradient-sunset: linear-gradient(135deg, var(--retro-orange) 0%, var(--retro-gold) 50%, var(--retro-purple) 100%);
+  --retro-gradient-disco: linear-gradient(90deg, var(--retro-magenta) 0%, var(--retro-purple) 50%, var(--retro-teal) 100%);
+  --retro-gradient-warm: linear-gradient(160deg, var(--retro-mustard) 0%, var(--retro-orange) 100%);
+  
+  /* Border radius en shadows */
+  --radius-groovy: 20px;
   --radius-pill: 999px;
-  --radius-card: 18px;
-  --shadow-soft: 0 6px 18px -6px rgba(0,0,0,.18);
-  --shadow-inner: inset 0 0 0 2px rgba(255,255,255,.4);
+  --shadow-groovy: 0 8px 24px -8px rgba(0,0,0,.25);
+  --shadow-deep: 0 12px 40px -12px rgba(0,0,0,.35);
+  --text-shadow-retro: 2px 2px 4px rgba(0,0,0,.15);
 }
 
+/* ========================================
+   🎨 BASE STYLING - 70s VIBES
+   ======================================== */
 body {
-  font-family: 'Quicksand', 'Fredoka', system-ui, Arial, sans-serif;
-  background:
-    radial-gradient(circle at 8% 15%, rgba(255,210,63,.35) 0%, rgba(255,210,63,0) 40%),
-    radial-gradient(circle at 90% 80%, rgba(239,71,111,.30) 0%, rgba(239,71,111,0) 50%),
-    linear-gradient(120deg, var(--bg) 0%, var(--bg-alt) 100%);
-  color: var(--secondary);
-  line-height: 1.6;
-  margin: 0;
+  font-family: 'Poppins', 'Fredoka', system-ui, sans-serif;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255,210,63,.25) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(239,71,111,.2) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(131,56,236,.15) 0%, transparent 60%),
+    var(--retro-cream);
+  color: #2d2d2d;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-header.site-header {
-  background: var(--accent-gradient);
-  padding: 2.8rem 1.2rem 2.6rem;
+/* Retro headings met groovy font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Righteous', 'Fredoka', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+h1 { color: var(--retro-purple); text-shadow: var(--text-shadow-retro); }
+h2 { color: var(--retro-orange); }
+
+/* ========================================
+   🎪 RETRO BUTTONS & LINKS
+   ======================================== */
+.btn--retro,
+a.btn--retro {
+  background: var(--retro-gradient-disco) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0.9rem 2rem !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-groovy), inset 0 0 0 2px rgba(255,255,255,.3) !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+}
+
+.btn--retro:hover,
+a.btn--retro:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: var(--shadow-deep), inset 0 0 0 2px rgba(255,255,255,.5) !important;
+  filter: brightness(1.1);
+}
+
+/* Links algemeen */
+a {
+  color: var(--retro-purple);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+a:hover {
+  color: var(--retro-magenta);
+  border-bottom-color: var(--retro-magenta);
+}
+
+/* ========================================
+   🎯 RETRO SECTIONS & COMPONENTS
+   ======================================== */
+.retro-section {
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  background: rgba(255,255,255,0.7);
+  border-radius: var(--radius-groovy);
+  box-shadow: var(--shadow-groovy);
+  backdrop-filter: blur(10px);
+}
+
+.retro-heading,
+.component h2,
+.retro-section h2 {
+  font-family: 'Righteous', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0 0 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--retro-gradient-disco);
+  color: white;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+  box-shadow: var(--shadow-groovy);
+  text-shadow: var(--text-shadow-retro);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.retro-heading::after,
+.component h2::after,
+.retro-section h2::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 5px;
+  margin: 1rem auto 0;
+  background: var(--retro-gradient-warm);
+  border-radius: 999px;
+}
+
+/* ========================================
+   📋 LISTS - SONGS, SESSIONS, SOCIAL
+   ======================================== */
+.song-list, .sessions, .social-links { 
+  list-style: none; 
+  padding-left: 0; 
+  margin: 1.5rem 0;
+}
+
+.song-list li, .sessions li, .social-links li { 
+  padding: 1rem 1.5rem; 
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(245,230,211,0.9) 100%);
+  margin: 1rem 0; 
+  border-radius: var(--radius-groovy); 
+  border-left: 5px solid var(--retro-orange);
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,.15);
+  transition: all 0.3s ease;
+}
+
+.song-list li:hover, .sessions li:hover, .social-links li:hover {
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px -4px rgba(0,0,0,.25);
+  border-left-color: var(--retro-purple);
+}
+
+.song-list li strong { 
+  color: var(--retro-magenta); 
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.social-links li a {
+  color: var(--retro-teal);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* WhatsApp button styling */
+.whatsapp-btn { 
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); 
+  color: white; 
+  padding: 1rem 2rem; 
+  border-radius: var(--radius-pill); 
+  text-decoration: none; 
+  font-weight: 700; 
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-groovy), inset 0 0 0 2px rgba(255,255,255,.3); 
+  transition: all 0.3s ease; 
+  display: inline-block;
+  border: none;
+}
+
+.whatsapp-btn:hover { 
+  transform: translateY(-3px) scale(1.05); 
+  box-shadow: var(--shadow-deep);
+  filter: brightness(1.1); 
+}
+
+/* ========================================
+   💬 TESTIMONIALS / BLOCKQUOTES
+   ======================================== */
+blockquote { 
+  background: linear-gradient(135deg, #ffffff 0%, #fff8e7 100%); 
+  border: none;
+  border-left: 8px solid var(--retro-gold);
+  margin: 1.5rem 0; 
+  padding: 1.5rem 2rem; 
+  border-radius: var(--radius-groovy); 
+  box-shadow: var(--shadow-groovy);
+  position: relative;
+  font-style: italic;
+}
+
+blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--retro-gold);
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-family: Georgia, serif;
+}
+
+blockquote p { 
+  margin: 0 0 1rem; 
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+blockquote footer { 
+  font-size: 0.95rem; 
+  color: var(--retro-purple); 
+  font-weight: 700; 
+  letter-spacing: 0.5px; 
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* ========================================
+   💰 PRIJZEN TABEL - RETRO STYLE
+   ======================================== */
+table.prices { 
+  width: 100%; 
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1.05rem; 
+  background: white; 
+  border-radius: var(--radius-groovy); 
+  overflow: hidden; 
+  box-shadow: var(--shadow-groovy);
+}
+
+table.prices th, table.prices td { 
+  border: none;
+  padding: 1.2rem 1.5rem; 
+  text-align: left;
+}
+
+table.prices thead {
+  background: var(--retro-gradient-disco);
+}
+
+table.prices th { 
+  color: white;
+  letter-spacing: 1px; 
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+}
+
+table.prices tbody tr {
+  transition: all 0.2s ease;
+}
+
+table.prices tbody tr:hover {
+  background: var(--retro-beige);
+  transform: scale(1.01);
+}
+
+table.prices tr:nth-child(even) td { 
+  background: rgba(255,248,231,0.5); 
+}
+
+table.prices td:first-child { 
+  font-weight: 700; 
+  color: var(--retro-orange);
+  font-size: 1.1rem;
+}
+
+/* ========================================
+   🎪 FEATURE ROWS - RETRO CARDS
+   ======================================== */
+.feature__item {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,231,0.95) 100%);
+  border-radius: var(--radius-groovy);
+  box-shadow: var(--shadow-groovy);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.feature__item:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: var(--shadow-deep);
+  border-color: var(--retro-gold);
+}
+
+.archive__item-title {
+  color: var(--retro-purple);
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.6rem;
+}
+
+.archive__item-excerpt {
+  color: #444;
+  font-size: 1.05rem;
+}
+
+/* ========================================
+   🎨 CALENDAR EMBED
+   ======================================== */
+.calendar-embed {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,248,231,0.9));
+}
+
+.calendar-container {
+  border-radius: var(--radius-groovy);
+  overflow: hidden;
+  box-shadow: var(--shadow-groovy);
+}
+
+.calendar-container iframe {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ========================================
+   🌟 FOOTER
+   ======================================== */
+.page__footer { 
+  margin-top: 4rem; 
+  padding: 3rem 1.5rem; 
+  background: linear-gradient(135deg, var(--retro-brown) 0%, #5a3d2b 100%);
+  color: var(--retro-cream);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-header.site-header::after {
-  content:""; position:absolute; inset:0;
-  background: repeating-linear-gradient(45deg, rgba(255,255,255,.15) 0 12px, transparent 12px 24px);
-  mix-blend-mode: overlay; pointer-events:none;
-}
-header.site-header h1 { margin: 0; color: #fff; font-weight: 600; font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing:.5px; }
-header.site-header p { color: #fff; opacity: 0.95; font-size:1.05rem; max-width:680px; margin:.75rem auto 0; }
 
-.component { margin: 2.8rem 0; position:relative; }
-.component h2 { font-family: 'Fredoka', 'Quicksand', sans-serif; font-weight:600; font-size:1.75rem; margin:0 0 1rem; display:inline-block; padding:.35rem .9rem .4rem 1rem; background:linear-gradient(90deg,var(--retro-purple) 0%, var(--retro-teal) 55%, var(--retro-mint) 100%); color:#fff; border-radius: var(--radius-pill); box-shadow: var(--shadow-soft); }
-.component h2::after { content:""; display:block; height:4px; margin:.45rem auto 0; background:linear-gradient(90deg,var(--retro-gold),var(--retro-magenta)); width:60%; border-radius:2px; opacity:.85; }
-.component p { max-width: 760px; }
-
-.song-list, .sessions, .social-links { list-style: none; padding-left: 0; margin:0; }
-.song-list li, .sessions li { padding: .35rem .55rem; background:#ffffffcc; margin:.35rem 0; border-radius: var(--radius-pill); backdrop-filter: blur(3px); }
-.song-list li strong { color: var(--retro-magenta); }
-
-.whatsapp-btn { background: linear-gradient(135deg,var(--retro-mint),var(--retro-teal)); color:#fff; padding:.7rem 1.15rem; border-radius: var(--radius-pill); text-decoration:none; font-weight:600; letter-spacing:.4px; box-shadow: var(--shadow-soft), var(--shadow-inner); transition: transform .25s ease, box-shadow .25s ease, filter .25s; }
-.whatsapp-btn:hover { transform: translateY(-3px); filter: brightness(1.08); }
-
-blockquote { background: linear-gradient(160deg,#ffffff 0%, #fff1e0 100%); border:2px solid var(--retro-gold); margin:1.2rem 0; padding:1rem 1.15rem; border-radius: var(--radius-card); box-shadow: 0 4px 14px -6px rgba(0,0,0,.15); }
-blockquote p { margin:0 0 .6rem; font-size:1.05rem; }
-blockquote footer { font-size:.8rem; color: var(--retro-purple); font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
-
-table.prices { width:100%; border-collapse: collapse; font-size:.95rem; background:#fff; border-radius: var(--radius-card); overflow:hidden; box-shadow: var(--shadow-soft); }
-table.prices th, table.prices td { border:1px solid #f2e6d2; padding:.65rem .85rem; }
-table.prices th { background: linear-gradient(90deg,var(--retro-magenta),var(--retro-purple)); color:#fff; letter-spacing:.5px; font-weight:600; }
-table.prices tr:nth-child(even) td { background:#fffaf1; }
-table.prices td:first-child { font-weight:600; color: var(--retro-teal); }
-
-footer.site-footer { margin-top:3.5rem; padding:2.4rem 1.2rem; background:linear-gradient(135deg,#1b1b1b,#262626); color:#eee; text-align:center; font-size:.85rem; position:relative; }
-footer.site-footer::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 15% 20%, rgba(239,71,111,.25), transparent 60%), radial-gradient(circle at 80% 70%, rgba(131,56,236,.25), transparent 65%); mix-blend-mode:screen; opacity:.4; }
-footer.site-footer a { color: var(--retro-gold); text-decoration:none; }
-footer.site-footer a:hover { color: var(--retro-mint); }
-
-@media (min-width: 780px) {
-  .grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:2.2rem; }
+.page__footer::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(255,210,63,.15), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(239,71,111,.15), transparent 65%);
+  mix-blend-mode: overlay;
 }
 
-.card { background:#fff; padding:1.1rem 1.15rem; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
-.card.gradient { background:linear-gradient(135deg,var(--retro-teal),var(--retro-mint)); color:#fff; }
+.page__footer a { 
+  color: var(--retro-gold); 
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
 
-a { color: var(--retro-purple); }
-a:hover { color: var(--retro-magenta); }
-::selection { background: var(--retro-gold); color:#222; }
+.page__footer a:hover { 
+  color: var(--retro-mustard);
+  border-bottom-color: var(--retro-mustard);
+}
+
+/* ========================================
+   📱 RESPONSIVE & MISC
+   ======================================== */
+@media (max-width: 768px) {
+  .retro-section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+  }
+  
+  .retro-heading,
+  .component h2,
+  .retro-section h2 {
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .calendar-container iframe {
+    height: 400px;
+  }
+}
+
+/* Selection styling */
+::selection { 
+  background: var(--retro-gold); 
+  color: #222; 
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page hero overlay text */
+.page__hero--overlay {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,.5);
+}
+
+.page__lead {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Text center utility */
+.text-center {
+  text-align: center;
+}
+
+/* Masthead (navigation) */
+.masthead {
+  background: linear-gradient(135deg, var(--retro-purple) 0%, var(--retro-magenta) 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.masthead__inner-wrap {
+  font-family: 'Poppins', sans-serif;
+}
+
+.greedy-nav a {
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.greedy-nav a:hover {
+  color: var(--retro-gold);
+}

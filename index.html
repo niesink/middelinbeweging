@@ -2,37 +2,101 @@
 layout: splash
 title: "Middel in Beweging"
 header:
-  overlay_color: "#ff6f61"
-  overlay_filter: "0.5"
-excerpt: "Groepslessen aerobics met energie, muziek en plezier!"
+  overlay_color: "#000"
+  overlay_image: /assets/images/hero-gradient.jpg
+  overlay_filter: linear-gradient(135deg, rgba(255,111,97,0.8) 0%, rgba(255,210,63,0.8) 45%, rgba(131,56,236,0.8) 100%)
+  actions:
+    - label: "📱 WhatsApp ons"
+      url: "https://wa.me/{{ site.whatsapp_number }}"
+      class: "btn--retro"
+excerpt: "🎵 Groovy aerobics lessen met energie, muziek en plezier! 🕺"
+
+intro:
+  - excerpt: "Welkom bij de leukste aerobics les van de stad! We combineren cardio, coördinatie en kracht op moderne én klassieke hits. Iedereen is welkom, ongeacht niveau. Kom bewegen met ons!"
+
+feature_row1:
+  - image_path: /assets/images/music-icon.png
+    alt: "Muziek"
+    title: "🎵 Onze Muziek"
+    excerpt: "Van disco classics tot moderne hits – we dansen op alles wat groovy is!"
+    url: "#songs"
+    btn_label: "Bekijk Playlist"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/schedule-icon.png
+    alt: "Rooster"
+    title: "📅 Lesrooster"
+    excerpt: "Meerdere lessen per week. Check wanneer jij kunt aansluiten!"
+    url: "#rooster"
+    btn_label: "Zie Tijden"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/price-icon.png
+    alt: "Prijzen"
+    title: "💰 Prijzen"
+    excerpt: "Losse lessen, strippenkaarten of maandabonnementen – voor ieder wat wils."
+    url: "#prijzen"
+    btn_label: "Bekijk Prijzen"
+    btn_class: "btn--retro"
+
+feature_row2:
+  - image_path: /assets/images/testimonial-icon.png
+    alt: "Quotes"
+    title: "💬 Wat zeggen leden?"
+    excerpt: "Hoor wat anderen vinden van onze lessen – we maken het leuk én uitdagend!"
+    url: "#reacties"
+    btn_label: "Lees Reviews"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/info-icon.png
+    alt: "Uitleg"
+    title: "ℹ️ Meer Informatie"
+    excerpt: "Hoe werkt het? Wat moet je meenemen? Alles wat je moet weten over onze lessen."
+    url: "/uitleg/"
+    btn_label: "Lees Meer"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/calendar-icon.png
+    alt: "Social"
+    title: "🌟 Volg Ons"
+    excerpt: "Blijf op de hoogte via onze sociale media en mis geen enkele update!"
+    url: "#social"
+    btn_label: "Social Media"
+    btn_class: "btn--retro"
 ---
 
-<main class="page__content">
-    {% include whatsapp.html %}
+{% include feature_row id="intro" type="center" %}
 
-    <section id="uitleg" class="component">
-        <h2>Uitleg</h2>
-        <p>Wat doen we? Energieke aerobics lessen met progressieve opbouw, veel muziek en plezier. Bekijk ook de uitgebreide <a href="{{ '/uitleg/' | relative_url }}">uitleg pagina</a>.</p>
-    </section>
+{% include feature_row id="feature_row1" %}
 
-    {% include schedule.html %}
+<div id="songs" class="retro-section">
+  {% include songs.html %}
+</div>
 
-    {% if site.calendar_embed_url %}
-    <section id="agenda-embed" class="component">
-        <h2>Agenda (Google Calendar)</h2>
-        <div class="calendar-container">
-            <iframe src="{{ site.calendar_embed_url }}" style="border:0" width="800" height="600" frameborder="0" scrolling="no" loading="lazy" title="Lesrooster"></iframe>
-        </div>
-    </section>
-    {% endif %}
+<div id="rooster" class="retro-section">
+  {% include schedule.html %}
+</div>
 
-    {% include songs.html %}
-    {% include testimonials.html %}
-    {% include prices.html %}
-    {% include social.html %}
+{% if site.calendar_embed_url %}
+<div id="agenda-embed" class="retro-section calendar-embed">
+  <h2 class="retro-heading">📅 Agenda (Google Calendar)</h2>
+  <div class="calendar-container">
+    <iframe src="{{ site.calendar_embed_url }}" style="border:0" width="100%" height="600" frameborder="0" scrolling="no" loading="lazy" title="Lesrooster"></iframe>
+  </div>
+</div>
+{% endif %}
 
-    <section id="voorwaarden" class="component">
-        <h2>Algemene Voorwaarden</h2>
-        <p>Lees onze <a href="{{ '/voorwaarden/' | relative_url }}">algemene voorwaarden</a> voor deelname.</p>
-    </section>
-</main>
+{% include feature_row id="feature_row2" %}
+
+<div id="reacties" class="retro-section">
+  {% include testimonials.html %}
+</div>
+
+<div id="prijzen" class="retro-section">
+  {% include prices.html %}
+</div>
+
+<div id="social" class="retro-section">
+  {% include social.html %}
+</div>
+
+<div class="retro-section text-center">
+  <h2 class="retro-heading">📋 Algemene Voorwaarden</h2>
+  <p>Lees onze <a href="{{ '/voorwaarden/' | relative_url }}" class="btn btn--retro">algemene voorwaarden</a> voor deelname.</p>
+</div>
