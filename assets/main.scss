@@ -414,21 +414,23 @@ html {
 /* ========================================
    🎨 LOGO IN HEADER TITLE
    ======================================== */
+.page__hero--overlay .page__title,
 .page__hero .page__title {
   text-align: center !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: none !important;
 }
 
-.page__hero .page__title .header-logo-img {
-  display: block;
-  width: 250px;
-  max-width: 400px;
-  height: auto;
-  margin: 0 auto;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5));
-  animation: float 3s ease-in-out infinite;
+.header-logo-img {
+  display: block !important;
+  width: 250px !important;
+  max-width: 400px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5)) !important;
+  animation: float 3s ease-in-out infinite !important;
 }
 
 @keyframes float {
@@ -437,8 +439,8 @@ html {
 }
 
 @media (max-width: 768px) {
-  .page__hero .page__title .header-logo-img {
-    width: 180px;
+  .header-logo-img {
+    width: 180px !important;
   }
 }
 
