@@ -119,3 +119,36 @@ footer.site-footer a:hover { color: var(--retro-mint); }
 a { color: var(--retro-purple); }
 a:hover { color: var(--retro-magenta); }
 ::selection { background: var(--retro-gold); color:#222; }
+
+/* ========================================
+   🎨 LOGO IN HEADER TITLE
+   ======================================== */
+.page__hero--overlay .page__title,
+.page__hero .page__title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.header-logo-img {
+  display: block !important;
+  width: 250px !important;
+  max-width: 400px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5)) !important;
+  animation: float 3s ease-in-out infinite !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .header-logo-img {
+    width: 180px !important;
+  }
+}
