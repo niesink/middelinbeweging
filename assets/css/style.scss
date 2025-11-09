@@ -2,54 +2,120 @@
 # Front matter verplicht zodat Jekyll SCSS verwerkt
 ---
 
-/* Vereenvoudigd naar pure CSS + custom properties voor compatibiliteit met linters */
+/* Retro + modern palette (70s vibes) */
+/* Font import via link tag in head is vaak sneller; fallback hier verwijderd. Voeg desgewenst <link> toe in layout. */
+
 :root {
-  --brand: {{ site.brand_color | default: '#ff3d6a' }};
-  --brand-light: #ff6f8d;
-  --secondary: {{ site.secondary_color | default: '#222' }};
-  --bg: #ffffff;
-  --accent-gradient: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 60%, #ffd1dd 100%);
+  /* Primary brand still configurable via _config.yml */
+  --brand: {{ site.brand_color | default: '#ff6f61' }}; /* Vibrant coral */
+  --brand-light: #ff9d8f;
+  --secondary: {{ site.secondary_color | default: '#1a1a1a' }};
+  --bg: #fff8e7; /* Soft retro cream */
+  --bg-alt: #fff3d1;
+  --retro-gold: #ffd23f;
+  --retro-teal: #1b9aaa;
+  --retro-mint: #06d6a0;
+  --retro-magenta: #ef476f;
+  --retro-purple: #8338ec;
+  --accent-gradient: linear-gradient(135deg, var(--brand) 0%, var(--retro-gold) 45%, var(--retro-purple) 100%);
+  --radius-pill: 999px;
+  --radius-card: 18px;
+  --shadow-soft: 0 6px 18px -6px rgba(0,0,0,.18);
+  --shadow-inner: inset 0 0 0 2px rgba(255,255,255,.4);
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: var(--bg);
+  font-family: 'Quicksand', 'Fredoka', system-ui, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(255,210,63,.35) 0%, rgba(255,210,63,0) 40%),
+    radial-gradient(circle at 90% 80%, rgba(239,71,111,.30) 0%, rgba(239,71,111,0) 50%),
+    linear-gradient(120deg, var(--bg) 0%, var(--bg-alt) 100%);
   color: var(--secondary);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 header.site-header {
   background: var(--accent-gradient);
-  padding: 2rem 1rem;
+  padding: 2.8rem 1.2rem 2.6rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-header.site-header h1 { margin: 0; color: #fff; font-weight: 700; }
-header.site-header p { color: #fff; opacity: 0.9; }
+header.site-header::after {
+  content:"";
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,.15) 0 12px, transparent 12px 24px);
+  mix-blend-mode: overlay; pointer-events:none;
+}
+header.site-header h1 { margin: 0; color: #fff; font-weight: 600; font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing:.5px; }
+header.site-header p { color: #fff; opacity: 0.95; font-size:1.05rem; max-width:680px; margin:.75rem auto 0; }
 
-.component { margin: 2.5rem 0; }
-.component h2 { border-left: 6px solid var(--brand); padding-left: .6rem; font-weight:600; }
+.component { margin: 2.8rem 0; position:relative; }
+.component h2 { 
+  font-family: 'Fredoka', 'Quicksand', sans-serif; 
+  font-weight:600; 
+  font-size:1.75rem; 
+  margin:0 0 1rem; 
+  display:inline-block; 
+  padding:.35rem .9rem .4rem 1rem; 
+  background:linear-gradient(90deg,var(--retro-purple) 0%, var(--retro-teal) 55%, var(--retro-mint) 100%); 
+  color:#fff; 
+  border-radius: var(--radius-pill); 
+  box-shadow: var(--shadow-soft); 
+}
+.component h2::after { content:""; display:block; height:4px; margin:.45rem auto 0; background:linear-gradient(90deg,var(--retro-gold),var(--retro-magenta)); width:60%; border-radius:2px; opacity:.85; }
+.component p { max-width: 760px; }
 
-.song-list, .sessions, .social-links { list-style: none; padding-left: 0; }
-.song-list li, .sessions li { padding: .25rem 0; }
+.song-list, .sessions, .social-links { list-style: none; padding-left: 0; margin:0; }
+.song-list li, .sessions li { padding: .35rem .55rem; background:#ffffffcc; margin:.35rem 0; border-radius: var(--radius-pill); backdrop-filter: blur(3px); }
+.song-list li strong { color: var(--retro-magenta); }
 
 .whatsapp-btn {
-  background: var(--brand); color:#fff; padding:.6rem 1rem; border-radius: 999px; text-decoration:none; font-weight:600;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
-  transition: background .2s, transform .2s;
+  background: linear-gradient(135deg,var(--retro-mint),var(--retro-teal)); 
+  color:#fff; 
+  padding:.7rem 1.15rem; 
+  border-radius: var(--radius-pill); 
+  text-decoration:none; 
+  font-weight:600; 
+  letter-spacing:.4px; 
+  box-shadow: var(--shadow-soft), var(--shadow-inner); 
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s; 
 }
-.whatsapp-btn:hover { background: var(--brand-light); transform: translateY(-2px); }
+.whatsapp-btn:hover { transform: translateY(-3px); filter: brightness(1.08); }
 
-blockquote { background:#f9f9f9; border-left:4px solid var(--brand); margin:1rem 0; padding:.75rem 1rem; }
-blockquote footer { font-size:.85rem; color: rgba(0,0,0,0.55); }
-
-table.prices { width:100%; border-collapse: collapse; }
-table.prices th, table.prices td { border:1px solid #ddd; padding:.5rem .75rem; }
-table.prices th { background: var(--brand); color:#fff; }
-
-footer.site-footer { margin-top:3rem; padding:2rem 1rem; background:#111; color:#eee; text-align:center; font-size:.85rem; }
-footer.site-footer a { color: var(--brand); }
-
-@media (min-width: 800px) {
-  .grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:2rem; }
+blockquote { 
+  background: linear-gradient(160deg,#ffffff 0%, #fff1e0 100%); 
+  border:2px solid var(--retro-gold); 
+  margin:1.2rem 0; 
+  padding:1rem 1.15rem; 
+  border-radius: var(--radius-card); 
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,.15); 
 }
+blockquote p { margin:0 0 .6rem; font-size:1.05rem; }
+blockquote footer { font-size:.8rem; color: var(--retro-purple); font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
+
+table.prices { width:100%; border-collapse: collapse; font-size:.95rem; background:#fff; border-radius: var(--radius-card); overflow:hidden; box-shadow: var(--shadow-soft); }
+table.prices th, table.prices td { border:1px solid #f2e6d2; padding:.65rem .85rem; }
+table.prices th { background: linear-gradient(90deg,var(--retro-magenta),var(--retro-purple)); color:#fff; letter-spacing:.5px; font-weight:600; }
+table.prices tr:nth-child(even) td { background:#fffaf1; }
+table.prices td:first-child { font-weight:600; color: var(--retro-teal); }
+
+footer.site-footer { margin-top:3.5rem; padding:2.4rem 1.2rem; background:linear-gradient(135deg,#1b1b1b,#262626); color:#eee; text-align:center; font-size:.85rem; position:relative; }
+footer.site-footer::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 15% 20%, rgba(239,71,111,.25), transparent 60%), radial-gradient(circle at 80% 70%, rgba(131,56,236,.25), transparent 65%); mix-blend-mode:screen; opacity:.4; }
+footer.site-footer a { color: var(--retro-gold); text-decoration:none; }
+footer.site-footer a:hover { color: var(--retro-mint); }
+
+@media (min-width: 780px) {
+  .grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:2.2rem; }
+}
+
+/* Cards helper */
+.card { background:#fff; padding:1.1rem 1.15rem; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.card.gradient { background:linear-gradient(135deg,var(--retro-teal),var(--retro-mint)); color:#fff; }
+
+/* Accessibility tweaks */
+a { color: var(--retro-purple); }
+a:hover { color: var(--retro-magenta); }
+::selection { background: var(--retro-gold); color:#222; }
