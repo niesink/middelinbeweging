@@ -2,18 +2,19 @@
   <h2>Muziek waar we op dansen</h2>
   {% if site.data.songs and site.data.songs.songs %}
   <div class="song-list-container">
-    <ul class="song-list">
-      {% for s in site.data.songs.songs %}
-        <li><strong>{{ s.title }}</strong> – {{ s.artist }}{% if s.bpm %} <span class="bpm">({{ s.bpm }} BPM)</span>{% endif %}</li>
-      {% endfor %}
+    <div class="song-list-scroll-wrapper">
+      <ul class="song-list">
+        {% for s in site.data.songs.songs %}
+          <li><strong>{{ s.title }}</strong> – {{ s.artist }}{% if s.bpm %} <span class="bpm">({{ s.bpm }} BPM)</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
       <!-- Duplicate voor oneindige scroll -->
-      {% for s in site.data.songs.songs %}
-        <li><strong>{{ s.title }}</strong> – {{ s.artist }}{% if s.bpm %} <span class="bpm">({{ s.bpm }} BPM)</span>{% endif %}</li>
-      {% endfor %}
-      {% for s in site.data.songs.songs %}
-        <li><strong>{{ s.title }}</strong> – {{ s.artist }}{% if s.bpm %} <span class="bpm">({{ s.bpm }} BPM)</span>{% endif %}</li>
-      {% endfor %}
-    </ul>
+      <ul class="song-list">
+        {% for s in site.data.songs.songs %}
+          <li><strong>{{ s.title }}</strong> – {{ s.artist }}{% if s.bpm %} <span class="bpm">({{ s.bpm }} BPM)</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
   {% else %}
     <p>Nog geen songs toegevoegd. Bewerk <code>_data/songs.yml</code>.</p>

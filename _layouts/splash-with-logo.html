@@ -63,6 +63,10 @@ layout: default
 </div>
 
 <style>
+.feature__item--center {
+    text-align: center !important
+}
+
 .masthead {
   border-bottom: none !important;
   z-index: 0 !important
@@ -137,12 +141,12 @@ layout: default
   text-align: center !important;
   margin: 2.5rem 0 2rem !important;
   padding: 0.75rem 2rem !important;
-  background: linear-gradient(90deg, #ef476f 0%, #8338ec 50%, #1b9aaa 100%) !important;
-  color: white !important;
+  background: linear-gradient(90deg, #9b4f32 0%, #ecb738 50%, #aa1b80cf 100%) !important;
+  color: #41ede5d9 !important;
   border-radius: 999px !important;
   display: inline-block !important;
   box-shadow: 0 8px 24px -8px rgba(0,0,0,.25) !important;
-  text-shadow: 2px 2px 4px rgba(0,0,0,.15) !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.75) !important;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -211,18 +215,13 @@ ol li {
   border-radius: 0 0 20px 20px;
 }
 
-/* Scrollende animatie - subtiel en langzaam */
-.song-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  column-count: 1;
-  column-gap: 1.5rem;
+/* Wrapper voor de scrollende lijsten */
+.song-list-scroll-wrapper {
   animation: slowScroll 60s linear infinite;
 }
 
 /* Pauzeer bij hover voor leesbaarheid */
-.song-list-container:hover .song-list {
+.song-list-container:hover .song-list-scroll-wrapper {
   animation-play-state: paused;
 }
 
@@ -233,6 +232,15 @@ ol li {
   100% {
     transform: translateY(-50%);
   }
+}
+
+/* Scrollende animatie - subtiel en langzaam */
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  column-count: 1;
+  column-gap: 1.5rem;
 }
 
 .song-list li {
@@ -269,15 +277,6 @@ ol li {
   .song-list {
     column-count: 2;
   }
-  
-  @keyframes slowScroll {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-33.33%);
-    }
-  }
 }
 
 @media (min-width: 1024px) {
@@ -288,49 +287,6 @@ ol li {
   .song-list-container {
     max-height: 450px;
   }
-  
-  @keyframes slowScroll {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-25%);
-    }
-  }
-}
-
-/* ========================================
-   ⬆️ TERUG NAAR BOVEN KNOP - RETRO STIJL
-   ======================================== */
-.back-to-top-wrapper {
-  text-align: center;
-  margin: 2rem 0 1rem;
-}
-
-.back-to-top-btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: linear-gradient(135deg, #ffd23f 0%, #ff6f61 50%, #ef476f 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 12px -4px rgba(0,0,0,.25);
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  text-shadow: 1px 1px 2px rgba(0,0,0,.2);
-}
-
-.back-to-top-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px -4px rgba(0,0,0,.35);
-  background: linear-gradient(135deg, #8338ec 0%, #1b9aaa 50%, #06d6a0 100%);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.back-to-top-btn:active {
-  transform: translateY(-1px);
 }
 
 </style>
