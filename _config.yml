@@ -16,7 +16,6 @@ calendar_embed_url: "https://calendar.google.com/calendar/embed?src=eh04k1h521g6
 
 # Site Settings
 url: "https://niesink.github.io"
-baseurl: "/middelinbeweging"
 repository: "niesink/middelinbeweging"
 
 # Permalinks & markdown
