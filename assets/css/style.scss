@@ -123,6 +123,13 @@ a:hover { color: var(--retro-magenta); }
 /* ========================================
    🎨 LOGO IN HEADER TITLE
    ======================================== */
+.page__hero--overlay {
+  height: 250px !important; /* Beperkte hoogte voor de gradient */
+  position: relative !important;
+  overflow: visible !important; /* Zorgt dat het logo boven de gradient kan uitsteken */
+  min-height: 250px !important;
+}
+
 .page__hero--overlay .page__title,
 .page__hero .page__title {
   text-align: center !important;
@@ -130,6 +137,30 @@ a:hover { color: var(--retro-magenta); }
   margin-right: auto !important;
   width: 100% !important;
   max-width: none !important;
+}
+
+.page__hero--overlay .wrapper {
+  position: relative !important;
+  padding: 1rem 1rem 1rem 1rem !important; /* Minder padding */
+}
+
+.page__hero--overlay .page__hero-caption {
+  position: relative !important;
+}
+
+.hero-logo-in-header {
+  margin-top: -80px !important; /* Logo omhoog trekken zodat het boven de gradient uitsteekt */
+  margin-bottom: 1.5rem !important;
+}
+
+.hero-logo-in-header .hero-logo-image {
+  display: block !important;
+  width: 400px !important;
+  max-width: 400px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5)) !important;
+  animation: float 3s ease-in-out infinite !important;
 }
 
 .header-logo-img {
@@ -148,6 +179,19 @@ a:hover { color: var(--retro-magenta); }
 }
 
 @media (max-width: 768px) {
+  .page__hero--overlay {
+    height: 180px !important; /* Kleinere hoogte op mobiel */
+    min-height: 180px !important;
+  }
+  
+  .hero-logo-in-header {
+    margin-top: -50px !important; /* Minder offset op mobiel */
+  }
+  
+  .hero-logo-in-header .hero-logo-image {
+    width: 180px !important;
+  }
+  
   .header-logo-img {
     width: 180px !important;
   }

@@ -448,6 +448,9 @@ html {
 .page__hero--overlay {
   color: white;
   text-shadow: 2px 2px 8px rgba(0,0,0,.5);
+  height: 250px; /* Beperkte hoogte voor de gradient */
+  position: relative;
+  overflow: visible; /* Zorgt dat het logo boven de gradient kan uitsteken */
 }
 
 .page__lead {
@@ -461,7 +464,7 @@ html {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem 1rem 1rem; /* Minder padding bovenaan */
 }
 
 .page__hero--overlay .page__hero-caption {
@@ -475,6 +478,7 @@ html {
   text-align: center;
   margin-bottom: 1.5rem;
   width: 100%;
+  margin-top: -80px; /* Logo omhoog trekken zodat het boven de gradient uitsteekt */
 }
 
 .hero-logo-in-header .hero-logo-image {
@@ -501,8 +505,16 @@ html {
     width: 180px;
   }
   
+  .page__hero--overlay {
+    height: 180px; /* Kleinere hoogte op mobiel */
+  }
+  
+  .hero-logo-in-header {
+    margin-top: -50px; /* Minder offset op mobiel */
+  }
+  
   .page__hero--overlay .wrapper {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 }
 
@@ -515,7 +527,7 @@ html {
 .masthead {
   background: linear-gradient(135deg, var(--retro-purple) 0%, var(--retro-magenta) 100%);
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
-  z-index: -1
+  z-index: -1 !important;
 }
 
 .masthead__inner-wrap {
