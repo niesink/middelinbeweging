@@ -1,17 +1,17 @@
 <section id="rooster" class="component">
-  <h2>Lesrooster</h2>
+  <h2>Agenda</h2>
   {% if site.data.schedule and site.data.schedule.weeks %}
     {% for w in site.data.schedule.weeks %}
       <div class="week">
-        <h3>Week {{ w.week }}</h3>
+        <h3>{{ w.week }}</h3>
         <ul class="sessions">
           {% for sess in w.sessions %}
-            <li><strong>{{ sess.day }}</strong>: {{ sess.time }} – <em>{{ sess.location }}</em></li>
+            <li><strong>{{ sess.day }}</strong>: {{ sess.time }}</li>
           {% endfor %}
         </ul>
       </div>
     {% endfor %}
   {% else %}
-    <p>Nog geen rooster toegevoegd. Bewerk <code>_data/schedule.yml</code>.</p>
+    <p>Nog geen rooster toegevoegd. </code>.</p>
   {% endif %}
 </section>

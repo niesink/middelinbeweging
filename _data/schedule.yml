@@ -1,17 +1,13 @@
 weeks:
-  - week: 45
+  - week: "Deze week"
     sessions:
-      - day: "Maandag"
+      - day: "Maandag 10 november"
         time: "19:00 - 20:00"
-        location: "Sporthal Noord"
-      - day: "Woensdag"
+      - day: "Woensdag 12 november"
         time: "19:30 - 20:30"
-        location: "Gymzaal Centrum"
-  - week: 46
+  - week: "Volgende week"
     sessions:
-      - day: "Maandag"
+      - day: "Maandag 17 november"
         time: "19:00 - 20:00"
-        location: "Sporthal Noord"
-      - day: "Donderdag"
-        time: "20:00 - 21:00"
-        location: "Gymzaal Zuid"
+      - day: "Zaterdag 22 november"
+        time: "10:30 - 11:30"

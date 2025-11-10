@@ -21,18 +21,18 @@ feature_row1:
     btn_label: "Korte uitleg"
     btn_class: "btn--retro"
   - image_path: /assets/images/1.jpg
+    alt: "Rooster"
+    title: "📅 Wanneer"
+    excerpt: "Meerdere lessen per week. Check wanneer jij kunt aansluiten!"
+    url: "#rooster"
+    btn_label: "Zie Agenda"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/3.jpg
     alt: "Muziek"
     title: "🎵 Onze Muziek"
     excerpt: "Van disco classics tot moderne hits, we dansen op alles wat groovy is!"
     url: "#songs"
     btn_label: "Bekijk Playlist"
-    btn_class: "btn--retro"
-  - image_path: /assets/images/3.jpg
-    alt: "Rooster"
-    title: "📅 Lesrooster"
-    excerpt: "Meerdere lessen per week. Check wanneer jij kunt aansluiten!"
-    url: "#rooster"
-    btn_label: "Zie Tijden"
     btn_class: "btn--retro"
   
 feature_row2:
@@ -66,14 +66,13 @@ feature_row2:
   {% include explanation.html %}
 </div>
 
-<div id="songs" class="retro-section">
-  {% include songs.html %}
-</div>
-
 <div id="rooster" class="retro-section">
   {% include schedule.html %}
 </div>
 
+<div id="songs" class="retro-section">
+  {% include songs.html %}
+</div>
 
 <div id="reacties" class="retro-section">
   {% include testimonials.html %}
