@@ -1,6 +1,7 @@
 songs:
   - title: "Levitating"
     artist: "Dua Lipa"
+    bpm: 132
   - title: "Can't Stop the Feeling!"
     artist: "Justin Timberlake"
   - title: "Blinding Lights"
