@@ -15,15 +15,15 @@ intro:
 feature_row1:
   - image_path: /assets/images/2.jpg
     alt: "Uitleg"
-    title: "ℹ️ Meer Informatie"
-    excerpt: "Hoe werkt het? Wat moet je meenemen? Alles wat je moet weten over onze lessen."
+    title: "ℹ️ Hoe werkt het?"
+    excerpt: "Wat moet je meenemen? Wat kun je verwachten? Alles wat je moet weten over onze lessen."
     url: "#uitleg"
-    btn_label: "Lees Meer"
+    btn_label: "Korte uitleg"
     btn_class: "btn--retro"
   - image_path: /assets/images/1.jpg
     alt: "Muziek"
     title: "🎵 Onze Muziek"
-    excerpt: "Van disco classics tot moderne hits – we dansen op alles wat groovy is!"
+    excerpt: "Van disco classics tot moderne hits, we dansen op alles wat groovy is!"
     url: "#songs"
     btn_label: "Bekijk Playlist"
     btn_class: "btn--retro"
@@ -37,25 +37,22 @@ feature_row1:
   
 feature_row2:
   - image_path: /assets/images/testimonial-icon.png
-    alt: "Quotes"
-    title: "💬 Wat zeggen leden?"
-    excerpt: "Hoor wat anderen vinden van onze lessen – we maken het leuk én uitdagend!"
+    title: "💬 Wat zeggen anderen?"
+    excerpt: "Hoor wat anderen vinden van onze lessen!"
     url: "#reacties"
     btn_label: "Lees Reviews"
     btn_class: "btn--retro"
   - image_path: /assets/images/calendar-icon.png
-    alt: "Social"
-    title: "🌟 Volg Ons"
-    excerpt: "Blijf op de hoogte via onze sociale media en mis geen enkele update!"
+    title: "🌟 Contact en Social"
+    excerpt: "Stuur me een bericht of blijf op de hoogte via onze sociale media!"
     url: "#social"
-    btn_label: "Social Media"
+    btn_label: "Whatsapp en Social Media"
     btn_class: "btn--retro"
   - image_path: /assets/images/price-icon.png
-    alt: "Prijzen"
-    title: "💰 Prijzen"
-    excerpt: "Losse lessen, strippenkaarten of maandabonnementen – voor ieder wat wils."
-    url: "#prijzen"
-    btn_label: "Bekijk Prijzen"
+    title: "📃 Spelregels"
+    excerpt: "Hoe werkt het betalen? Hoe zit 't met aansprakelijkheid?"
+    url: "#voorwaarden"
+    btn_label: "Bekijk de spelregels"
     btn_class: "btn--retro"
 ---
 
@@ -82,15 +79,10 @@ feature_row2:
   {% include testimonials.html %}
 </div>
 
-<div id="prijzen" class="retro-section">
-  {% include prices.html %}
-</div>
-
 <div id="social" class="retro-section">
   {% include social.html %}
 </div>
 
-<div class="retro-section text-center">
-  <h2 class="retro-heading">📋 Algemene Voorwaarden</h2>
-  <p>Lees onze <a href="{{ '/voorwaarden/' | relative_url }}" class="btn btn--retro">algemene voorwaarden</a> voor deelname.</p>
+<div id="voorwaarden" class="retro-section">
+  {% include voorwaarden.html %}
 </div>

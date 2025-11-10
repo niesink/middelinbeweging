@@ -59,7 +59,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { color: var(--retro-purple); text-shadow: var(--text-shadow-retro); }
-h2 { color: var(--retro-orange); }
 
 /* ========================================
    🎪 RETRO BUTTONS & LINKS
@@ -113,27 +112,31 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
+/* Overschrijf Minimal Mistakes h2 styling met hogere specificiteit */
+.page__content h2,
 .retro-heading,
-.component h2,
+section.component h2,
 .retro-section h2 {
-  font-family: 'Righteous', sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Righteous', sans-serif !important;
+  font-size: 2.5rem !important;
   text-align: center;
-  margin: 0 0 2rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--retro-gradient-disco);
-  color: white;
-  border-radius: var(--radius-pill);
-  display: inline-block;
-  box-shadow: var(--shadow-groovy);
-  text-shadow: var(--text-shadow-retro);
+  margin: 0 0 2rem !important;
+  padding: 0.75rem 1.5rem !important;
+  background: var(--retro-gradient-disco) !important;
+  color: white !important;
+  border-radius: var(--radius-pill) !important;
+  display: inline-block !important;
+  box-shadow: var(--shadow-groovy) !important;
+  text-shadow: var(--text-shadow-retro) !important;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  border-bottom: none !important;
 }
 
+.page__content h2::after,
 .retro-heading::after,
-.component h2::after,
+section.component h2::after,
 .retro-section h2::after {
   content: "";
   display: block;
