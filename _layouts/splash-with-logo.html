@@ -289,4 +289,88 @@ ol li {
   }
 }
 
+/* ========================================
+   📱 SOCIAL MEDIA KNOPPEN MET ICONEN
+   ======================================== */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,.25);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+}
+
+a.social-btn:visited {
+  color: white;
+}
+
+.social-btn i {
+  font-size: 1.8rem;
+}
+
+/* Instagram - Gradient */
+.social-btn-instagram {
+  background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+}
+
+.social-btn-instagram:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px -6px rgba(221, 42, 123, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Facebook - Blauw */
+.social-btn-facebook {
+  background: linear-gradient(135deg, #4267B2 0%, #3b5998 100%);
+}
+
+.social-btn-facebook:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px -6px rgba(66, 103, 178, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* WhatsApp - Groen */
+.social-btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.social-btn-whatsapp:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px -6px rgba(37, 211, 102, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.social-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .social-btn {
+    justify-content: center;
+    padding: 1.2rem 2rem;
+  }
+}
+
 </style>

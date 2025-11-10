@@ -1,11 +1,24 @@
 <section id="social" class="component">
   <h2>Volg ons</h2>
   {% if site.data.social and site.data.social.social %}
-    <ul class="social-links">
+    <div class="social-links">
       {% for s in site.data.social.social %}
-        <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.platform }}</a></li>
+        <a href="{{ s.url }}" target="_blank" rel="noopener" class="social-btn social-btn-{{ s.platform | downcase }}">
+          {% if s.platform == "Instagram" %}
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          {% elsif s.platform == "Facebook" %}
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+          {% elsif s.platform == "Whatsapp" or s.platform == "WhatsApp" %}
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          {% else %}
+            <span>{{ s.platform }}</span>
+          {% endif %}
+        </a>
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
     <p>Nog geen social links toegevoegd. Bewerk <code>_data/social.yml</code>.</p>
   {% endif %}
