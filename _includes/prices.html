@@ -1,19 +1,10 @@
-<section id="prijzen" class="component">
+<section class="component">
   <h2>Prijzen</h2>
-  {% if site.data.prices and site.data.prices.prices %}
-    <table class="prices">
-      <thead><tr><th>Product</th><th>Prijs (€)</th><th>Info</th></tr></thead>
-      <tbody>
-        {% for p in site.data.prices.prices %}
-          <tr>
-            <td>{{ p.name }}</td>
-            <td>{{ p.amount | sprintf: '%.2f' }}</td>
-            <td>{{ p.unit }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    <p>Nog geen prijzen toegevoegd. Bewerk <code>_data/prices.yml</code>.</p>
-  {% endif %}
+  <p>Een les van 60 minuten kost slechts €4.<br>
+Hiervan gaat €1 naar het buurthuis</p>
+<p>
+Je betaalt achteraf via een betaalverzoek of contant ter plekke.<br>
+Je betaalt alleen als je hebt meegedaan aan de les.<br>
+Geen abonnement, geen verplichtingen.<br>
+Kun je een keer niet? Dan kost het je ook niks!</p>
 </section>

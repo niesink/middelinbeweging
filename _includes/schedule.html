@@ -1,12 +1,18 @@
 <section id="rooster" class="component">
   <h2>Agenda</h2>
+  <h3>Locatie</h3>
+  <p>Alle lessen vinden plaats in <a href="https://maps.app.goo.gl/mRnToctwkfXzo5uG9" target="_blank">Buurthuis 't Middelpunt, Oude Deventerweg 5a, 8121RK Olst (Middel)</a>.<br>Er zijn geen kleedkamers, wel toiletten.</p>
   {% if site.data.schedule and site.data.schedule.weeks %}
     {% for w in site.data.schedule.weeks %}
       <div class="week">
         <h3>{{ w.week }}</h3>
         <ul class="sessions">
           {% for sess in w.sessions %}
-            <li><strong>{{ sess.day }}</strong>: {{ sess.time }}</li>
+            {% if sess.time %}
+              <li><strong>{{ sess.day }}</strong>: {{ sess.time }}</li>
+            {% else %}
+              <li><i>{{ sess.day }}</i></li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>

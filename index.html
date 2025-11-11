@@ -18,41 +18,40 @@ feature_row1:
     title: "ℹ️ Algemene info"
     excerpt: "Wat kun je verwachten? Voor wie is het geschikt? Alles wat je moet weten over onze lessen."
     url: "#uitleg"
-    btn_label: "Algemene info"
+    btn_label: "Bekijk algemene info"
     btn_class: "btn--retro"
   - image_path: /assets/images/groep.jpg
     alt: "Rooster"
-    title: "📅 Wanneer en waar"
+    title: "📅 Waar en wanneer"
     excerpt: "Meerdere lessen per week. Check wanneer jij kunt aansluiten!"
     url: "#rooster"
     btn_label: "Bekijk agenda"
     btn_class: "btn--retro"
   - image_path: /assets/images/moves.jpg
-    alt: "Muziek"
+    title: "🌟 Meld je aan!"
+    excerpt: "Meld je aan voor een gratis proefles"
+    url: "#signup"
+    btn_label: "Aanmelden"
+    btn_class: "btn--retro"
+  
+feature_row2:
+  - image_path: /assets/images/price-icon.png
+    title: "💰 Wat kost het?"
+    excerpt: "Informatie over prijzen en betalen"
+    url: "#prices"
+    btn_label: "Bekijk de prijzen"
+    btn_class: "btn--retro"
+  - image_path: /assets/images/calendar-icon.jpg
     title: "🎵 Onze muziek"
     excerpt: "Van disco classics tot moderne hits, we dansen op alles wat dansbaar is!"
     url: "#songs"
     btn_label: "Bekijk de playlist"
     btn_class: "btn--retro"
-  
-feature_row2:
   - image_path: /assets/images/testimonial-icon.png
     title: "💬 Wat zeggen leden?"
     excerpt: "Lees wat leden vinden van onze lessen!"
     url: "#reacties"
     btn_label: "Lees quotes"
-    btn_class: "btn--retro"
-  - image_path: /assets/images/calendar-icon.png
-    title: "🌟 Meld je aan!"
-    excerpt: "Meld je aan voor een gratis proefles"
-    url: "#social"
-    btn_label: "Whatsapp en Social Media"
-    btn_class: "btn--retro"
-  - image_path: /assets/images/price-icon.png
-    title: "📃 Prijzen"
-    excerpt: "Informatie over prijzen en betalen"
-    url: "#voorwaarden"
-    btn_label: "Bekijk de spelregels"
     btn_class: "btn--retro"
 ---
 
@@ -68,6 +67,14 @@ feature_row2:
 
 <div id="rooster" class="retro-section">
   {% include schedule.html %}
+</div>
+
+<div id="signup" class="retro-section">
+  {% include signup.html %}
+</div>
+
+<div id="prices" class="retro-section">
+  {% include prices.html %}
 </div>
 
 <div id="songs" class="retro-section">
