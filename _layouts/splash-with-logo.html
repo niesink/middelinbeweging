@@ -373,4 +373,96 @@ a.social-btn:visited {
   }
 }
 
+/* ========================================
+   💬 TESTIMONIALS HORIZONTALE CAROUSEL
+   ======================================== */
+.testimonials-carousel-container {
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.testimonials-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: horizontalScroll 80s linear infinite;
+  width: max-content;
+}
+
+/* Pauzeer bij hover */
+.testimonials-carousel:hover .testimonials-track {
+  animation-play-state: paused;
+}
+
+@keyframes horizontalScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-card {
+  flex: 0 0 auto;
+  width: 350px;
+  max-width: 90vw;
+  background: linear-gradient(160deg, #ffffff 0%, #fff1e0 100%);
+  border: 3px solid #ffd23f;
+  margin: 0;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,.2);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,.3);
+  border-color: #ef476f;
+}
+
+.testimonial-card p {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2d2d2d;
+  font-style: italic;
+}
+
+.testimonial-card footer {
+  font-size: 0.9rem;
+  color: #8338ec;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* Mobiel: kleinere kaarten */
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 280px;
+  }
+  
+  .testimonial-card p {
+    font-size: 1rem;
+  }
+  
+  @keyframes horizontalScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 </style>
