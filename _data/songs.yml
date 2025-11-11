@@ -1,178 +1,139 @@
 songs:
-  - title: "ibiza"
+  - title: "We're going to ibiza!"
     artist: "Vengaboys"
-    bpm: 138
-  - title: "stumblin in"
-    artist: "Suzi Quatro & Chris Norman"
-    bpm: 129
-  - title: "levitating"
+    bpm: 104
+  - title: "Stumblin' in"
+    artist: "CYRIL"
+    bpm: 126
+  - title: "Levitating"
     artist: "Dua Lipa"
-    bpm: 103
-  - title: "vamos a la playa"
-    artist: "Righeira"
-    bpm: 120
-  - title: "brother louie"
-    artist: "Modern Talking"
-    bpm: 109
-  - title: "love"
-    artist: "INNA"
+    bpm: 100
+  - title: "Vamos a la playa"
+    artist: "Loona"
     bpm: 128
-  - title: "gimme, gimme, gimme"
+  - title: "Brother Louie"
+    artist: "Modern Talking"
+    bpm: 114
+  - title: "Gimme!, Gimme!, Gimme!"
     artist: "ABBA"
     bpm: 119
-  - title: "superstar"
-    artist: "Jamelia"
-    bpm: 115
-  - title: "blinding lights"
+  - title: "Blinding lights"
     artist: "The Weeknd"
-    bpm: 171
-  - title: "shape of you"
+    bpm: 159
+  - title: "Shape of you"
     artist: "Ed Sheeran"
-    bpm: 96
-  - title: "freed from desire"
+    bpm: 98
+  - title: "Freed from desire"
     artist: "Gala"
-    bpm: 129
-  - title: "shake it off"
+    bpm: 130
+  - title: "Shake it off"
     artist: "Taylor Swift"
-    bpm: 160
-  - title: "rivers of babylon"
+    bpm: 153
+  - title: "Rivers of Babylon"
     artist: "Boney M."
     bpm: 114
-  - title: "what makes you beautiful"
+  - title: "What makes you beautiful"
     artist: "One Direction"
-    bpm: 125
-  - title: "sugar sugar"
+    bpm: 122
+  - title: "Sugar sugar"
     artist: "The Archies"
     bpm: 123
-  - title: "casual"
-    artist: "Chappell Roan"
+  - title: "Casual"
+    artist: "Roxy Dekker"
     bpm: 120
-  - title: "no scrubs"
+  - title: "No scrubs"
     artist: "TLC"
-    bpm: 93
-  - title: "dear future husband"
+    bpm: 96
+  - title: "Dear future husband"
     artist: "Meghan Trainor"
-    bpm: 79
-  - title: "we found love"
+    bpm: 154
+  - title: "We found love"
     artist: "Rihanna ft. Calvin Harris"
-    bpm: 128
-  - title: "back for good"
+    bpm: 125
+  - title: "Back for good"
     artist: "Take That"
-    bpm: 79
-  - title: "waterloo"
+    bpm: 82
+  - title: "Waterloo"
     artist: "ABBA"
     bpm: 148
-  - title: "dirty dancing"
+  - title: "Dirty dancing"
     artist: "Bill Medley & Jennifer Warnes"
     bpm: 108
-  - title: "achy breaky heart"
+  - title: "Achy breaky heart"
     artist: "Billy Ray Cyrus"
-    bpm: 122
-  - title: "would I lie"
-    artist: "Charles & Eddie"
-    bpm: 104
-  - title: "last christmas"
-    artist: "Wham!"
-    bpm: 107
-  - title: "all i want for christmas"
-    artist: "Mariah Carey"
-    bpm: 150
-  - title: "flowers"
-    artist: "Miley Cyrus"
-    bpm: 118
-  - title: "mambo no 5"
+    bpm: 120
+  - title: "Mambo no 5"
     artist: "Lou Bega"
-    bpm: 174
-  - title: "believe"
+    bpm: 168
+  - title: "Believe"
     artist: "Cher"
-    bpm: 133
+    bpm: 128
   - title: "500 miles"
     artist: "The Proclaimers"
     bpm: 132
-  - title: "september"
+  - title: "September"
     artist: "Earth, Wind & Fire"
-    bpm: 126
-  - title: "carnaval"
-    artist: "Dario G"
-    bpm: 133
-  - title: "moves like jagger"
+    bpm: 124
+  - title: "Moves like Jagger"
     artist: "Maroon 5 ft. Christina Aguilera"
     bpm: 128
-  - title: "country roads"
-    artist: "John Denver"
-    bpm: 82
-  - title: "livin la vida loca"
+  - title: "Livin' la vida loca"
     artist: "Ricky Martin"
-    bpm: 178
-  - title: "never gonna give"
+    bpm: 171
+  - title: "Never gonna give you up"
     artist: "Rick Astley"
-    bpm: 113
-  - title: "sugar sugar"
-    artist: "The Archies"
-    bpm: 123
-  - title: "daddy cool"
+    bpm: 118
+  - title: "Daddy cool"
     artist: "Boney M."
     bpm: 124
-  - title: "sweet dreams"
+  - title: "Sweet dreams"
     artist: "Eurythmics"
     bpm: 125
-  - title: "never gonna give"
-    artist: "Rick Astley"
-    bpm: 113
   - title: "9 to 5"
     artist: "Dolly Parton"
     bpm: 105
-  - title: "don't impress me much"
-    artist: "Shania Twain"
-    bpm: 125
-  - title: "jump"
+  - title: "Jump"
     artist: "The Pointer Sisters"
     bpm: 134
-  - title: "apt"
+  - title: "APT"
     artist: "Rosé & Bruno Mars"
-    bpm: 149
-  - title: "walk of life"
+    bpm: 135
+  - title: "Walk of life"
     artist: "Dire Straits"
-    bpm: 172
-  - title: "enjoy the silence"
+    bpm: 168
+  - title: "Enjoy the silence"
     artist: "Depeche Mode"
     bpm: 113
-  - title: "the sign"
+  - title: "The sign"
     artist: "Ace of Base"
     bpm: 97
-  - title: "timber"
+  - title: "Timber"
     artist: "Pitbull ft. Kesha"
     bpm: 130
-  - title: "take on me"
-    artist: "a-ha"
-    bpm: 169
-  - title: "go west"
+  - title: "Take on me"
+    artist: "A-ha"
+    bpm: 166
+  - title: "Go west"
     artist: "Pet Shop Boys"
     bpm: 121
-  - title: "how do you do"
+  - title: "How do you do"
     artist: "Roxette"
-    bpm: 130
-  - title: "walking on sunshine"
+    bpm: 122
+  - title: "Walking on sunshine"
     artist: "Katrina & The Waves"
-    bpm: 220
-  - title: "truly madly deeply"
+    bpm: 110
+  - title: "Truly madly deeply"
     artist: "Savage Garden"
     bpm: 84
-  - title: "dreams"
-    artist: "Fleetwood Mac"
+  - title: "Dreams"
+    artist: "2 Brothers on the 4th floor"
     bpm: 120
-  - title: "coco jambo"
-    artist: "Mr. President"
-    bpm: 101
-  - title: "sex bomb"
+  - title: "Sex bomb"
     artist: "Tom Jones"
     bpm: 122
-  - title: "everytime we touch"
+  - title: "Everytime we touch"
     artist: "Cascada"
     bpm: 142
-  - title: "macarena"
+  - title: "Macarena"
     artist: "Los del Río"
     bpm: 103
-  - title: "hands clap"
-    artist: "Fitz and The Tantrums"
-    bpm: 140
