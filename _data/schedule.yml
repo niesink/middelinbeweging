@@ -4,10 +4,10 @@ weeks:
       - day: "Maandag 10 november"
         time: "19:00 - 20:00"
       - day: "Woensdag 12 november"
-        time: "19:30 - 20:30"
+        time: "19:00 - 20:00"
   - week: "Volgende week"
     sessions:
       - day: "Maandag 17 november"
         time: "19:00 - 20:00"
-      - day: "Zaterdag 22 november"
-        time: "10:30 - 11:30"
+      - day: "Nog niet bepaald"
+        time: ""
