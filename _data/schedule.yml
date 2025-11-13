@@ -3,6 +3,8 @@ weeks:
     sessions:
       - day: "Woensdag 12 november"
         time: "19:00 - 20:00"
+      - day: "Zaterdag 15 november"
+        time: "09:30 - 10:30"
   - week: "Volgende week"
     sessions:
       - day: "Maandag 17 november (VOL, wachtlijst)"
