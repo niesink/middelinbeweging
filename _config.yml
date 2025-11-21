@@ -1,6 +1,7 @@
 title: Middel in Beweging
 description: Groepslessen aerobics met energie, muziek en plezier.
 lang: nl-NL
+locale: "nl-NL"
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin: "default"
 
