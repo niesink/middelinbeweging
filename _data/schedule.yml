@@ -5,6 +5,10 @@ weeks:
         time: "19:00 - 20:00"
       - day: "Woensdag 3 december"
         time: "19:00 - 20:00"
+      - day: "Donderdag 4 december"
+        time: "19:00 - 20:00"
+      - day: "Zaterdag 6 december"
+        time: "09:30 - 10:30"
   - week: "Volgende week"
     sessions:
       - day: "Maandag 8 december (VOL, wachtlijst)"
