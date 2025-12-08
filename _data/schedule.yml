@@ -1,17 +1,12 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Maandag 1 december (VOL, wachtlijst)"
+      - day: "Maandag 8 december (VOL)"
         time: "19:00 - 20:00"
-      - day: "Woensdag 3 december"
-        time: "19:00 - 20:00"
-      - day: "Donderdag 4 december"
-        time: "19:00 - 20:00"
-      - day: "Zaterdag 6 december"
-        time: "09:30 - 10:30"
+      - day: "Wordt nog bepaald..."   
   - week: "Volgende week"
     sessions:
-      - day: "Maandag 8 december (VOL, wachtlijst)"
+      - day: "Maandag 15 december (VOL, wachtlijst)"
         time: "19:00 - 20:00"
       - day: "Wordt nog bepaald..."
   - week: "Later"
