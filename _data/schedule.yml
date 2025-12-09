@@ -9,7 +9,7 @@ weeks:
         time: "10:00 - 11:00"
   - week: "Volgende week"
     sessions:
-      - day: "Maandag 15 december (VOL, wachtlijst)"
+      - day: "Maandag 15 december (VOL)"
         time: "19:00 - 20:00"
       - day: "Wordt nog bepaald..."
   - week: "Later"
