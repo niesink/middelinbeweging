@@ -1,13 +1,13 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Maandag 15 december (VOL)"
+      - day: "Maandag 22 december (VOL)"
         time: "19:00 - 20:00"
-      - day: "Woensdag 17 december"
-        time: "19:00 - 20:00"
+      - day: "Zaterdag 27 december"
+        time: "09:30 - 10:30"
   - week: "Volgende week"
     sessions:
-      - day: "Maandag 22 december (VOL)"
+      - day: "Maandag 29 december (VOL)"
         time: "19:00 - 20:00"
       - day: "Wordt nog bepaald..."
   - week: "Later"
