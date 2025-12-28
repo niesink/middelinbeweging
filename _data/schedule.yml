@@ -1,18 +1,15 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Maandag 22 december (VOL)"
-        time: "19:00 - 20:00"
-      - day: "Zaterdag 27 december"
-        time: "09:30 - 10:30"
-  - week: "Volgende week"
-    sessions:
       - day: "Maandag 29 december (VOL)"
         time: "19:00 - 20:00"
-      - day: "Wordt nog bepaald..."
-  - week: "Later"
-    sessions:
-      - day: "Vrijdag 2 januari 2026 - Goede-Voornemens-Super-Zweet-Sessie"
+      - day: "Dinsdag 30 december"
         time: "19:00 - 20:00"
-      
-        
+      - day: "Vrijdag 2 januari (extra zwaar)"
+        time: "19:00 - 20:00"
+  - week: "Volgende week"
+    sessions:
+      - day: "Maandag 5 januari (VOL)"
+        time: "19:00 - 20:00"
+      - day: "Wordt nog bepaald..."
+  
