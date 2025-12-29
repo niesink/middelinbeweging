@@ -1,0 +1,245 @@
+---
+permalink: /nowhere/
+layout: single
+---
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middel of Nowhere • Antwoordcontrole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #06070d;
+            --bg-accent: radial-gradient(circle at 20% 20%, #10253f, transparent 45%),
+                          radial-gradient(circle at 80% 0%, #2d0b17, transparent 50%),
+                          radial-gradient(circle at 60% 80%, #0f2b1e, transparent 55%);
+            --card: rgba(6, 7, 13, 0.9);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f6f3ee;
+            --text-muted: rgba(246, 243, 238, 0.7);
+            --accent: #f0c34a;
+            --accent-strong: #ff8b3d;
+            --error: #ff5f6d;
+            --success: #7ee787;
+            font-family: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+            background-image: var(--bg-accent);
+            background-attachment: fixed;
+        }
+
+        main {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: floatIn 650ms ease-out;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 0.4rem;
+            letter-spacing: 0.02em;
+        }
+
+        p.lead {
+            margin: 0 0 2rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1 1 220px;
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: border-color 180ms ease, transform 180ms ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        button {
+            flex: 0 0 auto;
+            padding: 0.9rem 1.8rem;
+            border: none;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            color: #1c1408;
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            cursor: pointer;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        button:focus-visible {
+            outline: 3px solid rgba(240, 195, 74, 0.4);
+            outline-offset: 4px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(240, 195, 74, 0.35);
+        }
+
+        .hint {
+            margin-top: 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .result {
+            margin-top: 1.5rem;
+            min-height: 1.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .result.success {
+            color: var(--success);
+        }
+
+        .result.error {
+            color: var(--error);
+        }
+
+        @keyframes floatIn {
+            from {
+                transform: translateY(16px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.65rem;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="card" aria-live="polite">
+            <h1>Middel of Nowhere</h1>
+            <p class="lead">Voer het gevonden eindantwoord in om te checken of je de puzzel correct hebt opgelost. </p>
+
+            <form id="answer-form" autocomplete="off">
+                <label for="answer-input">Antwoord invoeren</label>
+                <div class="input-row">
+                    <input id="answer-input" name="answer" type="text" placeholder="Bijv. 123" required>
+                    <button type="submit">Controleer</button>
+                </div>
+                <p class="hint">Tip: cijfers en letters zijn niet hoofdlettergevoelig.</p>
+            </form>
+
+            <div id="result" class="result" role="status" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <script>
+        const storedHash = '0a5b046d07f6f971b7776de682f57c5b9cdc8fa060db7ef59de82e721c8098f4'; // SHA-256 hash of the correct solution
+
+        const hexFromBuffer = (buffer) => {
+            const byteArray = new Uint8Array(buffer);
+            return Array.from(byteArray)
+                .map((byte) => byte.toString(16).padStart(2, '0'))
+                .join('');
+        };
+
+        async function hashText(text) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            return hexFromBuffer(hashBuffer);
+        }
+
+        const form = document.getElementById('answer-form');
+        const input = document.getElementById('answer-input');
+        const resultBox = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const normalized = input.value.trim().toLowerCase();
+
+            if (!normalized) {
+                resultBox.textContent = 'Voer eerst een antwoord in.';
+                resultBox.className = 'result error';
+                return;
+            }
+
+            const currentHash = await hashText(normalized);
+            const match = currentHash === storedHash;
+
+            resultBox.textContent = match ? 'Yes! Dit antwoord klopt precies.' : 'Helaas, dit antwoord is niet juist.';
+            resultBox.className = `result ${match ? 'success' : 'error'}`;
+
+            if (match) {
+                input.value = '';
+            }
+        });
+
+        input.addEventListener('focus', () => resultBox.textContent = '');
+    </script>
+</body>
+</html>
