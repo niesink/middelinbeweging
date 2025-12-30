@@ -354,11 +354,10 @@ layout: null
             </div>
 
             <div class="reward-actions">
-                <button id="reopen-camera-btn" type="button" hidden>Maak nog een live foto</button>
                 <button id="download-btn" type="button" disabled>Download jouw trofee</button>
+                <button id="reopen-camera-btn" type="button" hidden>Maak nog een live foto</button>
             </div>
 
-            <p class="hint">Wil je je eigen frame gebruiken? Vervang later eenvoudig de placeholder-afbeelding in de code door jouw PNG.</p>
         </section>
     </main>
 
@@ -415,7 +414,7 @@ layout: null
                 renderComposite();
             }
         };
-        frameImage.src = createFramePlaceholder();
+        frameImage.src = 'nowhere_frame_small.png';
 
         const cameraSupported = Boolean(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
         if (!cameraSupported) {
@@ -787,25 +786,6 @@ layout: null
             rewardCanvas.hidden = false;
             downloadBtn.disabled = false;
             rewardStatus.textContent = 'Klaar! Download jouw trofee hieronder.';
-        }
-
-        function createFramePlaceholder() {
-            // Simple SVG placeholder so you can later replace it with a custom PNG frame.
-            const svg = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
-                    <defs>
-                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#f0c34a"/>
-                            <stop offset="100%" stop-color="#ff8b3d"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="1024" height="1024" fill="none"/>
-                    <rect x="12" y="12" width="1000" height="1000" rx="80" ry="80" fill="none" stroke="url(#grad)" stroke-width="28"/>
-                    <rect x="70" y="70" width="884" height="884" rx="56" ry="56" fill="none" stroke="#ffffff" opacity="0.35" stroke-width="6" stroke-dasharray="30 20"/>
-                    <text x="50%" y="94%" text-anchor="middle" font-size="64" font-family="Space Grotesk, Helvetica, sans-serif" font-weight="600" fill="#f6f3ee">Ik heb de puzzel opgelost</text>
-                </svg>
-            `;
-            return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
         }
 
         window.addEventListener('beforeunload', stopCameraStream);
