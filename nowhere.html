@@ -47,7 +47,7 @@ layout: null
 
         main {
             width: 100%;
-            max-width: 520px;
+            max-width: 720px;
         }
 
         .card {
@@ -148,6 +148,132 @@ layout: null
             color: var(--error);
         }
 
+        .reward {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 320ms ease, transform 320ms ease;
+        }
+
+        .reward.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reward-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin: 1.5rem 0 1.25rem;
+        }
+
+        .mode-btn {
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .mode-btn.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(240, 195, 74, 0.1);
+        }
+
+        .reward-panel {
+            margin-bottom: 1rem;
+        }
+
+        .file-input {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
+            border: 1px dashed var(--card-border);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .file-input::file-selector-button {
+            margin-right: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            color: #1c1408;
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            cursor: pointer;
+        }
+
+        .reward-preview {
+            margin-top: 1rem;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .reward-preview canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .camera-view {
+            position: relative;
+            border: 1px dashed var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 260px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .camera-view video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #020305;
+        }
+
+        .camera-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .camera-actions button {
+            flex: 1 1 180px;
+        }
+
+        .reward-status {
+            margin-top: 0.6rem;
+            min-height: 1.4rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .reward-actions {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        #download-btn {
+            width: 100%;
+        }
+
+        #download-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         @keyframes floatIn {
             from {
                 transform: translateY(16px);
@@ -195,6 +321,45 @@ layout: null
 
             <div id="result" class="result" role="status" aria-live="polite"></div>
         </section>
+
+        <section id="reward" class="card reward" hidden aria-live="polite">
+            <h2>Jouw digitale trofee</h2>
+            <p class="lead">Gefeliciteerd! Maak live een selfie of upload een favoriete foto en maak je eigen trofee!</p>
+
+            <div class="reward-modes" role="tablist" aria-label="Fotobron kiezen">
+                <button type="button" class="mode-btn active" data-mode="camera" aria-selected="true">Live foto maken</button>
+                <button type="button" class="mode-btn" data-mode="upload" aria-selected="false">Afbeelding uploaden</button>
+            </div>
+
+            <div id="upload-panel" class="reward-panel" hidden>
+                <label for="photo-input">Zelf een foto kiezen</label>
+                <input id="photo-input" class="file-input" type="file" accept="image/*">
+            </div>
+
+            <div id="camera-panel" class="reward-panel">
+                <p class="hint" id="camera-note">Start de camera wanneer je klaar bent voor een verse overwinning-selfie.</p>
+                <div id="camera-view" class="camera-view" hidden>
+                    <video id="camera-preview" playsinline muted></video>
+                </div>
+                <div class="camera-actions">
+                    <button id="start-camera-btn" type="button">Start camera</button>
+                    <button id="capture-btn" type="button" disabled hidden>Neem foto</button>
+                </div>
+            </div>
+
+            <p id="reward-status" class="reward-status">Deze functie wordt zichtbaar zodra je het juiste antwoord hebt gevonden.</p>
+
+            <div class="reward-preview">
+                <canvas id="reward-canvas" width="1024" height="1024" hidden aria-hidden="true"></canvas>
+            </div>
+
+            <div class="reward-actions">
+                <button id="reopen-camera-btn" type="button" hidden>Maak nog een live foto</button>
+                <button id="download-btn" type="button" disabled>Download jouw trofee</button>
+            </div>
+
+            <p class="hint">Wil je je eigen frame gebruiken? Vervang later eenvoudig de placeholder-afbeelding in de code door jouw PNG.</p>
+        </section>
     </main>
 
     <script>
@@ -217,6 +382,62 @@ layout: null
         const form = document.getElementById('answer-form');
         const input = document.getElementById('answer-input');
         const resultBox = document.getElementById('result');
+        const rewardSection = document.getElementById('reward');
+        const photoInput = document.getElementById('photo-input');
+        const modeButtons = document.querySelectorAll('[data-mode]');
+        const cameraModeButton = document.querySelector('[data-mode="camera"]');
+        const uploadPanel = document.getElementById('upload-panel');
+        const cameraPanel = document.getElementById('camera-panel');
+        const cameraView = document.getElementById('camera-view');
+        const cameraPreview = document.getElementById('camera-preview');
+        const cameraNote = document.getElementById('camera-note');
+        const startCameraBtn = document.getElementById('start-camera-btn');
+        const captureBtn = document.getElementById('capture-btn');
+        const reopenCameraBtn = document.getElementById('reopen-camera-btn');
+        const rewardStatus = document.getElementById('reward-status');
+        const rewardCanvas = document.getElementById('reward-canvas');
+        const downloadBtn = document.getElementById('download-btn');
+        const canvasContext = rewardCanvas.getContext('2d');
+
+        let rewardUnlocked = false;
+        let userImage = null;
+        let frameReady = false;
+        let currentMode = 'camera';
+        let mediaStream = null;
+        let cameraPanelCollapsed = false;
+        let hasCameraAccess = false;
+        let isStartingCamera = false;
+
+        const frameImage = new Image();
+        frameImage.onload = () => {
+            frameReady = true;
+            if (userImage) {
+                renderComposite();
+            }
+        };
+        frameImage.src = createFramePlaceholder();
+
+        const cameraSupported = Boolean(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+        if (!cameraSupported) {
+            cameraNote.textContent = 'Deze browser ondersteunt geen camera-opnames. Kies een bestaande afbeelding.';
+            startCameraBtn.hidden = true;
+            captureBtn.disabled = true;
+            cameraView.hidden = true;
+            captureBtn.hidden = true;
+            setMode('upload');
+            if (cameraModeButton) {
+                cameraModeButton.disabled = true;
+                cameraModeButton.setAttribute('aria-disabled', 'true');
+            }
+        } else {
+            captureBtn.disabled = true;
+            captureBtn.hidden = true;
+            cameraView.hidden = true;
+            startCameraBtn.hidden = false;
+            setMode(currentMode);
+        }
+
+        resetCameraControls();
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -236,10 +457,358 @@ layout: null
 
             if (match) {
                 input.value = '';
+                unlockReward();
             }
         });
 
-        input.addEventListener('focus', () => resultBox.textContent = '');
+        input.addEventListener('focus', () => {
+            resultBox.textContent = '';
+            resultBox.className = 'result';
+        });
+
+        modeButtons.forEach((button) => {
+            button.addEventListener('click', () => switchMode(button.dataset.mode));
+        });
+
+        photoInput.addEventListener('change', handleFileSelection);
+
+        startCameraBtn.addEventListener('click', () => {
+            if (!cameraSupported) {
+                rewardStatus.textContent = 'Camera wordt niet ondersteund in deze browser.';
+                return;
+            }
+            startCamera();
+        });
+
+        captureBtn.addEventListener('click', capturePhoto);
+        reopenCameraBtn.addEventListener('click', () => {
+            cameraPanelCollapsed = false;
+            cameraPanel.hidden = false;
+            reopenCameraBtn.hidden = true;
+            rewardStatus.textContent = 'Camera wordt gestart...';
+            if (currentMode !== 'camera') {
+                switchMode('camera', { forceCameraStart: true });
+            } else {
+                maybeAutoStartCamera(true);
+            }
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            if (downloadBtn.disabled) {
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.href = rewardCanvas.toDataURL('image/png');
+            link.download = 'middel-of-nowhere-trofee.png';
+            link.click();
+        });
+
+        function unlockReward() {
+            rewardSection.hidden = false;
+            rewardSection.classList.add('active');
+            rewardStatus.textContent = currentMode === 'camera'
+                ? 'Start de camera en leg je overwinning vast.'
+                : 'Upload een foto voor jouw trofee.';
+
+            if (!rewardUnlocked) {
+                rewardUnlocked = true;
+            }
+
+            rewardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            modeButtons.forEach((btn) => {
+                const isActive = btn.dataset.mode === mode;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            const showCamera = mode === 'camera' && !cameraPanelCollapsed;
+            uploadPanel.hidden = mode !== 'upload';
+            cameraPanel.hidden = !showCamera;
+
+            if (mode === 'upload') {
+                rewardStatus.textContent = 'Upload een foto voor jouw trofee.';
+                stopCameraStream();
+            } else if (cameraSupported) {
+                rewardStatus.textContent = rewardUnlocked
+                    ? 'Start de camera en leg je overwinning vast.'
+                    : 'Start de camera wanneer je klaar bent.';
+            }
+        }
+
+        function switchMode(mode, { forceCameraStart = false } = {}) {
+            if (mode === 'camera' && !cameraSupported) {
+                rewardStatus.textContent = 'Camera wordt niet ondersteund in deze browser.';
+                return;
+            }
+
+            const previousMode = currentMode;
+
+            if (mode === 'camera' && previousMode !== 'camera') {
+                cameraPanelCollapsed = false;
+                reopenCameraBtn.hidden = true;
+            }
+
+            setMode(mode);
+
+            if (mode === 'camera' && !cameraPanelCollapsed) {
+                if (forceCameraStart || hasCameraAccess) {
+                    maybeAutoStartCamera(forceCameraStart || hasCameraAccess);
+                } else {
+                    resetCameraControls();
+                }
+            } else {
+                resetCameraControls();
+            }
+        }
+
+        function handleFileSelection(event) {
+            const [file] = event.target.files;
+
+            if (!file) {
+                rewardStatus.textContent = 'Geen bestand geselecteerd.';
+                return;
+            }
+
+            if (!file.type.startsWith('image/')) {
+                rewardStatus.textContent = 'Dit bestand is geen afbeelding. Kies een ander bestand.';
+                event.target.value = '';
+                downloadBtn.disabled = true;
+                rewardCanvas.hidden = true;
+                return;
+            }
+
+            rewardStatus.textContent = 'Bezig met verwerken...';
+            downloadBtn.disabled = true;
+            rewardCanvas.hidden = true;
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    userImage = img;
+                    renderComposite();
+                };
+                img.onerror = () => {
+                    rewardStatus.textContent = 'De afbeelding kon niet worden geladen. Probeer opnieuw.';
+                };
+                img.src = reader.result;
+            };
+            reader.onerror = () => {
+                rewardStatus.textContent = 'Er ging iets mis bij het uitlezen van dit bestand.';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function startCamera(auto = false) {
+            if (!cameraSupported || isStartingCamera || mediaStream) {
+                return;
+            }
+
+            isStartingCamera = true;
+            startCameraBtn.hidden = true;
+            startCameraBtn.disabled = true;
+            rewardStatus.textContent = 'Camera wordt gestart...';
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: 'user',
+                        width: { ideal: 1280 },
+                        height: { ideal: 1280 }
+                    }
+                });
+                mediaStream = stream;
+                cameraPreview.srcObject = stream;
+                await cameraPreview.play();
+                hasCameraAccess = true;
+                cameraPanelCollapsed = false;
+                cameraPanel.hidden = false;
+                cameraView.hidden = false;
+                captureBtn.hidden = false;
+                captureBtn.disabled = false;
+                reopenCameraBtn.hidden = true;
+                rewardStatus.textContent = 'Camera actief. Druk op "Neem foto" om verder te gaan.';
+            } catch (error) {
+                rewardStatus.textContent = auto
+                    ? 'Automatisch starten van de camera is niet gelukt. Gebruik eventueel de knop "Start camera".'
+                    : 'Camera kon niet worden gestart. Controleer permissies en probeer opnieuw.';
+                startCameraBtn.hidden = false;
+            } finally {
+                startCameraBtn.disabled = false;
+                isStartingCamera = false;
+                resetCameraControls();
+            }
+        }
+
+        function capturePhoto() {
+            if (!mediaStream) {
+                rewardStatus.textContent = 'Start eerst de camera.';
+                return;
+            }
+
+            const captureCanvas = document.createElement('canvas');
+            const width = cameraPreview.videoWidth || 1024;
+            const height = cameraPreview.videoHeight || 1024;
+            captureCanvas.width = width;
+            captureCanvas.height = height;
+
+            const ctx = captureCanvas.getContext('2d');
+            ctx.drawImage(cameraPreview, 0, 0, width, height);
+
+            const image = new Image();
+            image.onload = () => {
+                userImage = image;
+                renderComposite();
+                rewardStatus.textContent = 'Foto vastgelegd! Download je trofee of maak eventueel nog een foto.';
+                cameraPanelCollapsed = true;
+                cameraPanel.hidden = true;
+                cameraView.hidden = true;
+                captureBtn.hidden = true;
+                captureBtn.disabled = true;
+                reopenCameraBtn.hidden = false;
+                stopCameraStream();
+            };
+            image.onerror = () => {
+                rewardStatus.textContent = 'Het vastleggen van de foto is mislukt. Probeer opnieuw.';
+            };
+            image.src = captureCanvas.toDataURL('image/png');
+        }
+
+        function stopCameraStream() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach((track) => track.stop());
+                mediaStream = null;
+            }
+            cameraPreview.srcObject = null;
+            resetCameraControls();
+        }
+
+        function resetCameraControls() {
+            if (!cameraSupported) {
+                return;
+            }
+
+            const cameraVisible = currentMode === 'camera' && !cameraPanelCollapsed;
+            cameraPanel.hidden = !cameraVisible;
+
+            if (!cameraVisible) {
+                startCameraBtn.hidden = true;
+                startCameraBtn.disabled = false;
+                cameraView.hidden = true;
+                captureBtn.hidden = true;
+                captureBtn.disabled = true;
+                return;
+            }
+
+            const active = Boolean(mediaStream);
+
+            if (active) {
+                startCameraBtn.hidden = true;
+                startCameraBtn.disabled = false;
+                cameraView.hidden = false;
+                captureBtn.hidden = false;
+                captureBtn.disabled = false;
+                return;
+            }
+
+            if (isStartingCamera) {
+                startCameraBtn.hidden = true;
+                startCameraBtn.disabled = true;
+                cameraView.hidden = true;
+                captureBtn.hidden = true;
+                captureBtn.disabled = true;
+                return;
+            }
+
+            startCameraBtn.hidden = false;
+            startCameraBtn.disabled = false;
+            cameraView.hidden = true;
+            captureBtn.hidden = true;
+            captureBtn.disabled = true;
+        }
+
+        function maybeAutoStartCamera(force = false) {
+            if (!cameraSupported || cameraPanelCollapsed) {
+                resetCameraControls();
+                return;
+            }
+
+            if (mediaStream || isStartingCamera) {
+                return;
+            }
+
+            if (force || hasCameraAccess) {
+                startCamera(true);
+            } else {
+                resetCameraControls();
+            }
+        }
+
+        function renderComposite() {
+            if (!userImage || !frameReady) {
+                return;
+            }
+
+            const width = frameImage.naturalWidth || 1024;
+            const height = frameImage.naturalHeight || 1024;
+            rewardCanvas.width = width;
+            rewardCanvas.height = height;
+
+            const padding = width * 0.12;
+            const availableWidth = width - padding * 2;
+            const availableHeight = height - padding * 2;
+            const userRatio = userImage.width / userImage.height;
+            const targetRatio = availableWidth / availableHeight;
+
+            let drawWidth;
+            let drawHeight;
+
+            if (userRatio > targetRatio) {
+                drawWidth = availableWidth;
+                drawHeight = drawWidth / userRatio;
+            } else {
+                drawHeight = availableHeight;
+                drawWidth = drawHeight * userRatio;
+            }
+
+            const dx = (width - drawWidth) / 2;
+            const dy = (height - drawHeight) / 2;
+
+            canvasContext.fillStyle = '#05060a';
+            canvasContext.fillRect(0, 0, width, height);
+            canvasContext.drawImage(userImage, dx, dy, drawWidth, drawHeight);
+            canvasContext.drawImage(frameImage, 0, 0, width, height);
+
+            rewardCanvas.hidden = false;
+            downloadBtn.disabled = false;
+            rewardStatus.textContent = 'Klaar! Download jouw trofee hieronder.';
+        }
+
+        function createFramePlaceholder() {
+            // Simple SVG placeholder so you can later replace it with a custom PNG frame.
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+                    <defs>
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#f0c34a"/>
+                            <stop offset="100%" stop-color="#ff8b3d"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="1024" height="1024" fill="none"/>
+                    <rect x="12" y="12" width="1000" height="1000" rx="80" ry="80" fill="none" stroke="url(#grad)" stroke-width="28"/>
+                    <rect x="70" y="70" width="884" height="884" rx="56" ry="56" fill="none" stroke="#ffffff" opacity="0.35" stroke-width="6" stroke-dasharray="30 20"/>
+                    <text x="50%" y="94%" text-anchor="middle" font-size="64" font-family="Space Grotesk, Helvetica, sans-serif" font-weight="600" fill="#f6f3ee">Ik heb de puzzel opgelost</text>
+                </svg>
+            `;
+            return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+        }
+
+        window.addEventListener('beforeunload', stopCameraStream);
     </script>
 </body>
 </html>
