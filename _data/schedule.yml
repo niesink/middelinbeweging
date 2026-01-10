@@ -3,6 +3,8 @@ weeks:
     sessions:
       - day: "Maandag 12 januari (VOL)"
         time: "19:00 - 20:00"
+      - day: "Woensdag 14 januari"
+        time: "19:00 - 20:00"
       - day: "Vrijdag 16 januari"
         time: "19:00 - 20:00"
   - week: "Volgende week"
