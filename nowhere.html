@@ -459,6 +459,16 @@ layout: null
                 input.value = '';
                 unlockReward();
             }
+
+            const webhookUrl = "https://hooks.nabu.casa/gAAAAABpcQUsRzQlkm6BE6FKcoBAQp2hbT5RhbP35GiDyWFFvaVE-2ZoCxkZqXSKTW04PY7OS28qcNAaOLNdcjHf3w_gqnHNzL9Qis1IxyycgRrovs19AtWibl_aZd8PKqSRZzc2QPQVKscRaRFPYe9Vmo9pN_sNcTD5TbDZpFypsaqcPiUHPzA=";
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({
+                    oplossing: normalized
+                })
+            });
         });
 
         input.addEventListener('focus', () => {
