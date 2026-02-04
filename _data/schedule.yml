@@ -1,16 +1,11 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Maandag 26 januari (VOL)"
-        time: "19:00 - 20:00"
-      - day: "Donderdag 29 januari"
-        time: "19:00 - 20:00"
-      - day: "Zaterdag 31 januari"
-        time: "09:30 - 10:30"
-
+      - day: "vakantie"
+        time: ""
   - week: "Volgende week"
     sessions:
-      - day: "Maandag 2 februari (VOL)"
-        time: "19:00 - 20:00"
+      - day: "vakantie"
+        time: ""
       - day: "Wordt nog bepaald..."
   
