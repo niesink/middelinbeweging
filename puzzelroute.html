@@ -484,19 +484,16 @@ layout: null
         }
 
         .photo-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 16 / 9;
             border-radius: 12px;
-            border: 2px dashed rgba(74, 124, 35, 0.3);
-            background: rgba(74, 124, 35, 0.06);
-            color: #2d5016;
-            font-weight: 700;
-            text-align: center;
-            line-height: 1.7;
-            padding: 24px;
+            overflow: hidden;
             margin-top: 20px;
+        }
+
+        .photo-placeholder img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
         }
 
         footer {
@@ -686,13 +683,11 @@ layout: null
                                 <div class="puzzle-frame">
                                     <img src="../demo.jpg" alt="Voorbeeldfoto van de fotopuzzel met een afgeplakt woord">
                                 </div>
-                                <figcaption class="puzzle-caption">Op deze foto is een deel van het woord afgeplakt. Dat ontbrekende woord zoek je terug.</figcaption>
                             </figure>
                             <figure class="puzzle-photo">
                                 <div class="puzzle-frame">
                                     <img src="../clear.jpg" alt="Voorbeeldfoto van de fotopuzzel met het volledige woord zichtbaar">
                                 </div>
-                                <figcaption class="puzzle-caption">Hier zie je het volledige woord: KINDEREN.</figcaption>
                             </figure>
                         </div>
                         <div class="paper-lines">
