@@ -26,7 +26,8 @@ layout: null
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2d5016 0%, #48694E 50%, #6b8e23 100%);
+            background: linear-gradient(150deg, #1e3a0e 0%, #2d5016 20%, #48694E 45%, #6b8e23 70%, #3d6b1c 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             color: #333;
         }
@@ -80,11 +81,11 @@ layout: null
         }
 
         .feature {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #f8f9fa;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 16px;
             text-align: center;
-            border-left: 4px solid #4a7c23;
+            border: 1px solid rgba(45, 80, 22, 0.1);
         }
 
         .feature-icon {
@@ -99,9 +100,10 @@ layout: null
 
         .startpunten {
             background: #f8f9fa;
-            border-radius: 15px;
+            border-radius: 16px;
             padding: 30px;
             margin: 30px 0;
+            border: 1px solid rgba(45, 80, 22, 0.1);
         }
 
         .startpunten h2 {
@@ -156,6 +158,13 @@ layout: null
             margin: 40px 0;
         }
 
+        .cta-prompt {
+            color: #2d5016;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
         .cta-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -204,10 +213,11 @@ layout: null
         }
 
         .hoe-werkt-het {
-            background: #e8f5e9;
-            border-radius: 15px;
+            background: #eef4e8;
+            border-radius: 16px;
             padding: 30px;
             margin: 30px 0;
+            border: 1px solid rgba(45, 80, 22, 0.1);
         }
 
         .hoe-werkt-het h2 {
@@ -228,7 +238,7 @@ layout: null
             gap: 15px;
             background: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .stap-nummer {
@@ -242,6 +252,251 @@ layout: null
             justify-content: center;
             font-weight: bold;
             flex-shrink: 0;
+        }
+
+        .section-divider {
+            height: 1px;
+            margin: 42px 0;
+            background: linear-gradient(90deg, rgba(45, 80, 22, 0), rgba(74, 124, 35, 0.35), rgba(45, 80, 22, 0));
+        }
+
+        .info-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #25323b;
+            font-size: 2rem;
+            margin-bottom: 22px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 92px;
+            height: 4px;
+            margin-top: 14px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #6b8e23, #2d5016);
+        }
+
+        .section-intro {
+            color: #37444d;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .tips-list,
+        .route-list,
+        .social-list {
+            padding-left: 24px;
+            color: #1f2d35;
+            line-height: 1.9;
+        }
+
+        .tips-list li,
+        .route-list li,
+        .social-list li {
+            margin-bottom: 10px;
+        }
+
+        .route-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .diagram-card,
+        .puzzle-card,
+        .about-card,
+        .social-card {
+            background: #f8f9fa;
+            border: 1px solid rgba(45, 80, 22, 0.1);
+            border-radius: 16px;
+        }
+
+        .diagram-card {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .diagram-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #25323b;
+            margin-bottom: 14px;
+        }
+
+        .diagram-svg {
+            width: 100%;
+            max-width: 230px;
+            height: auto;
+        }
+
+        .diagram-caption {
+            margin-top: 16px;
+            color: #55636c;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .scroll-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            color: #55636c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .scroll-hint::after {
+            content: "↓";
+            font-size: 1.1rem;
+            color: #4a7c23;
+        }
+
+        .scroll-hint:hover {
+            color: #2d5016;
+        }
+
+        .puzzle-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .puzzle-card {
+            padding: 24px;
+        }
+
+        .puzzle-example {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .puzzle-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(45, 80, 22, 0.1);
+            background: #f8f9fa;
+        }
+
+        .puzzle-photo {
+            margin: 0;
+        }
+
+        .puzzle-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .puzzle-caption {
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #4a5963;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        .paper-lines {
+            margin-top: 18px;
+            text-align: center;
+            color: #25323b;
+            font-size: 1.8rem;
+            letter-spacing: 0.2em;
+        }
+
+    
+
+        .puzzle-side {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .puzzle-note {
+            background: #faf6e8;
+            border-left: 4px solid #c49a2c;
+            padding: 18px 20px;
+            border-radius: 12px;
+            color: #3c3420;
+            line-height: 1.8;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .social-card {
+            padding: 24px;
+        }
+
+        .social-card h3 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .social-card p {
+            color: #55636c;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #2d5016;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            width: 22px;
+            height: 22px;
+        }
+
+        .about-card {
+            padding: 28px;
+        }
+
+        .about-text p {
+            color: #37444d;
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        .photo-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            border: 2px dashed rgba(74, 124, 35, 0.3);
+            background: rgba(74, 124, 35, 0.06);
+            color: #2d5016;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.7;
+            padding: 24px;
+            margin-top: 20px;
         }
 
         footer {
@@ -270,6 +525,25 @@ layout: null
 
             .logo {
                 width: 100%;
+            }
+
+            .section-divider {
+                margin: 34px 0;
+            }
+
+            .section-title {
+                font-size: 1.65rem;
+            }
+
+            .route-layout,
+            .puzzle-layout,
+            .social-grid,
+            .puzzle-example {
+                grid-template-columns: 1fr;
+            }
+
+            .paper-lines {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -344,6 +618,140 @@ layout: null
             </div>
 
             <div class="cta-sectie">
+                <p class="cta-prompt">Klaar om de puzzelrit te bestellen?</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/31614174474?text=Hoi!%20Ik%20wil%20graag%20meedoen%20aan%20de%20Middel%20of%20Nowhere%20puzzelrit!" class="cta-btn whatsapp-btn">
+                        <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Bestel via WhatsApp
+                    </a>
+                    <a href="mailto:middelinbeweging@gmail.com?subject=Bestelling%20Middel%20of%20Nowhere%20puzzelrit&body=Hoi!%20Ik%20wil%20graag%20meedoen%20aan%20de%20Middel%20of%20Nowhere%20puzzelrit!" class="cta-btn email-btn">
+                        <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Bestel via E-mail
+                    </a>
+                </div>
+                <a class="scroll-hint" href="#tips-title">Scroll verder voor tips en extra uitleg</a>
+            </div>
+
+        </main>
+
+        <div class="main-card" id="tips-title">
+
+            <section class="info-section" aria-labelledby="tips-heading">
+                <h2 class="section-title" id="tips-heading">Tips</h2>
+                <ul class="tips-list">
+                    <li>Doe de route bij daglicht, zodat je de locatie van de foto's goed herkent.</li>
+                    <li>Neem een pen mee en misschien iets om onder het papier te leggen bij het schrijven.</li>
+                    <li>Print de foto's in kleur of gebruik een tablet of telefoon.</li>
+                </ul>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="info-section" aria-labelledby="route-title">
+                <h2 class="section-title" id="route-title">Hoe zit het met navigeren?</h2>
+                <p class="section-intro">
+                    We gebruiken tulip diagrammen om de route aan te geven. Daarmee zie je in een oogopslag waar je vandaan komt,
+                    hoeveel kilometer je al gereden hebt en welke afslag je moet nemen.
+                </p>
+                <div class="route-layout">
+                    <ul class="route-list">
+                        <li>Boven ieder diagram zie je de afstand sinds het vorige diagram.</li>
+                        <li>Het bolletje is waar je vandaan komt, het pijltje is waar je naar toe gaat.</li>
+                        <li>Het diagram hiernaast betekent dus: na 1.3 km kom je op een kruising waar je linksaf moet.</li>
+                        <li>Tip: reset na ieder diagram de dagteller van je auto.</li>
+                    </ul>
+                    <div class="diagram-card" aria-label="Voorbeeld van een tulip diagram">
+                        <div class="diagram-label">1.3 km</div>
+                         <img src="../kruising_links.svg" alt="Middel of Nowhere - Salland Auto Puzzelrit" class="logo">
+                        <p class="diagram-caption">Na 1.3 kilometer kom je bij een kruising en sla je linksaf.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="info-section" aria-labelledby="puzzle-title">
+                <h2 class="section-title" id="puzzle-title">En die fotopuzzel?</h2>
+                <p class="section-intro">
+                    Onderweg kom je foto's tegen die op volgorde van de route staan. Gebruik die foto's om letters te vinden en vul het antwoord in op de laatste pagina.
+                </p>
+                <div class="puzzle-layout">
+                    <div class="puzzle-card">
+                        <div class="puzzle-example">
+                            <figure class="puzzle-photo">
+                                <div class="puzzle-frame">
+                                    <img src="../demo.jpg" alt="Voorbeeldfoto van de fotopuzzel met een afgeplakt woord">
+                                </div>
+                                <figcaption class="puzzle-caption">Op deze foto is een deel van het woord afgeplakt. Dat ontbrekende woord zoek je terug.</figcaption>
+                            </figure>
+                            <figure class="puzzle-photo">
+                                <div class="puzzle-frame">
+                                    <img src="../clear.jpg" alt="Voorbeeldfoto van de fotopuzzel met het volledige woord zichtbaar">
+                                </div>
+                                <figcaption class="puzzle-caption">Hier zie je het volledige woord: KINDEREN.</figcaption>
+                            </figure>
+                        </div>
+                        <div class="paper-lines">
+                            <p>_ _ _ <span>▯</span> _ _ _ _ </p>
+                            <p>63&nbsp;</p>
+                        </div>                        
+                    </div>
+                    <div class="puzzle-side">
+                        <div class="puzzle-note">Het woord KINDEREN was dus afgeplakt. Dat vul je in op de streepjes onder de foto.</div>
+                        <div class="puzzle-note">Op de plek van het vakje staat een D. Dus 63 = D.</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="info-section" aria-labelledby="social-title">
+                <h2 class="section-title" id="social-title">Volg Middel of Nowhere</h2>
+                <div class="social-grid">
+                    <div class="social-card">
+                        <h3>Facebook</h3>
+                        <p>Volg onze pagina voor updates, nieuwe ritten en foto's van onderweg.</p>
+                        <a class="social-link" href="https://www.facebook.com/profile.php?id=61586008074445" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M13.5 8.5V6.75c0-.83.67-1.5 1.5-1.5H17V2h-2c-2.62 0-4.75 2.13-4.75 4.75V8.5H8v3.25h2.25V22h3.25V11.75H17l.5-3.25z"/>
+                            </svg>
+                            Bekijk ons op Facebook
+                        </a>
+                    </div>
+                    <div class="social-card">
+                        <h3>Instagram</h3>
+                        <p>Kijk mee achter de schermen en ontdek sfeerbeelden van onze puzzelrit.</p>
+                        <a class="social-link" href="https://www.instagram.com/middel.of.nowhere.puzzelrit" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5m0 2.5A2.5 2.5 0 004.5 7v10A2.5 2.5 0 007 19.5h10a2.5 2.5 0 002.5-2.5V7A2.5 2.5 0 0017 4.5zm10.75 1.88a.87.87 0 11-.87.87.87.87 0 01.87-.87M12 7a5 5 0 110 10 5 5 0 010-10m0 2.5A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5"/>
+                            </svg>
+                            Bekijk ons op Instagram
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="info-section" aria-labelledby="about-title">
+                <h2 class="section-title" id="about-title">Over ons</h2>
+                <div class="about-card">
+                    <div class="about-text">
+                        <p>Wij zijn Anne en Luke, trotse inwoners van Buurtschap Middel. Onze gezamenlijke hobby? Puzzelen en autorijden. Na heel wat kilometers en gepuzzel in andere ritten, begon het te kriebelen: dat kunnen wij ook!</p>
+                        <p>We hebben onze ervaringen en stiekem ook onze kleine frustraties van eerdere ritten gebundeld om de ultieme route te creeren. Het resultaat is een prachtige tocht door Salland met Buurtschap Middel als stralend middelpunt. De naam was dan ook snel gevonden: Middel of Nowhere.</p>
+                        <p>Wij hebben met veel plezier aan deze route gewerkt en hopen dat jullie er net zo van genieten. Laat je ons weten wat je ervan vond? Jullie feedback helpt ons om de volgende rit nog beter te maken.</p>
+                    </div>
+                    <div class="photo-placeholder">
+                        <img src="../autofoto.jpg">
+                    </div>
+                </div>
+            </section>
+
+            <div class="cta-sectie">
                 <div class="cta-buttons">
                     <a href="https://wa.me/31614174474?text=Hoi!%20Ik%20wil%20graag%20meedoen%20aan%20de%20Middel%20of%20Nowhere%20puzzelrit!" class="cta-btn whatsapp-btn">
                         <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -359,7 +767,7 @@ layout: null
                     </a>
                 </div>
             </div>
-        </main>
+        </div>
 
         <footer>
             <p>© Middel of Nowhere - Salland Auto Puzzelrit</p>
