@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Doorverwijzen naar betaalverzoek...</title>
+    <meta name="robots" content="noindex">
+    <script>
+        // ====================================================
+        // Pas hier elke 30 dagen de URL aan (en verder nergens):
+        const betaalverzoekUrl = "https://www.ing.nl/payreq/m/?trxid=QhvowvPlNiMI9fxqbKrNsTUkksk0oI7Q";
+        // ====================================================
+
+        // 1. Meta-refresh fallback (voor browsers zonder JS-redirect support)
+        document.write('<meta http-equiv="refresh" content="0; url=' + betaalverzoekUrl + '">');
+
+        // 2. Directe JS-redirect (snelst, geen history-entry)
+        window.location.replace(betaalverzoekUrl);
+    </script>
+</head>
+<body>
+    <p>Je wordt doorgestuurd naar het betaalverzoek...</p>
+    <p>Werkt het niet? <a id="fallback" href="#">Klik hier</a>.</p>
+    <script>
+        // 3. Zichtbare fallback-link
+        document.getElementById('fallback').href = betaalverzoekUrl;
+    </script>
+</body>
+</html>
