@@ -1,13 +1,10 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Maandag 19 mei (VOL)"
+      - day: "Maandag 25 mei"
+        time: "geen les"
+      - day: "Woensdag 27 mei"
         time: "19:00 - 20:00"
-      - day: "Woensdag 21 mei"
-        time: "19:00 - 20:00"
-      - day: "Zaterdag 23 mei"
-        time: "09:30 - 10:30"
-
       
   - week: "Volgende week"
     sessions:
