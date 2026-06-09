@@ -1,10 +1,10 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Donderdag 4 juni"
+      - day: "Woensdag 10 juni"
         time: "19:00 - 20:00"
       
   - week: "Volgende week"
     sessions:
-      - day: "Wordt nog bepaald..."
+      - day: "Geen les"
   
