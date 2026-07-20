@@ -1,9 +1,9 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Woensdag 8 juli"
+      - day: "Dinsdag 21 juli"
         time: "19:00 - 20:00"
-      - day: "Donderdag 9 juli"
+      - day: "Woensdag 22 juli"
         time: "19:00 - 20:00"
 
   - week: "Volgende week"
