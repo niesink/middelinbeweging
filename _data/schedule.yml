@@ -3,6 +3,10 @@ weeks:
     sessions:
       - day: "Dinsdag 4 augustus"
         time: "19:00 - 20:00"
+      - day: "Donderdag 6 augustus"
+        time: "19:00 - 20:00"
+      - day: "Zaterdag 8 augustus"
+        time: "09:30 - 10:30"
       
   - week: "Volgende week"
     sessions:
