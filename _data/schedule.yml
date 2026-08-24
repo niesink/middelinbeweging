@@ -1,10 +1,12 @@
 weeks:
   - week: "Deze week"
     sessions:
-      - day: "Dinsdag 18 augustus"
+      - day: "Dinsdag 24 augustus"
         time: "19:00 - 20:00"
-      - day: "Donderdag 20 augustus"
+      - day: "Woensdag 25 augustus"
         time: "19:00 - 20:00"
+      - day: "Zaterdag 29 augustus"
+        time: "09:30 - 10:30"
       
   - week: "Volgende week"
     sessions:
